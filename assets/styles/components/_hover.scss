@@ -1,0 +1,41 @@
+.c-hover-lift {
+  position: relative;
+  transition: transform 0.15s ease-in-out;
+
+  &:hover,
+  &.v--hover {
+    transform: translate(-10px, -10px);
+  }
+}
+
+.c-hover-highlight {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #{map-get($colors, "highlight")};
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  &:hover,
+  &.v--hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.c-hover-reveal {
+  & &__content {
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  &:hover &__content,
+  &.v--hover &__content {
+    opacity: 1;
+  }
+}

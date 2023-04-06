@@ -1,0 +1,14 @@
+.c-square {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+
+  &__content {
+    position: absolute;
+    inset: 0;
+  }
+}

@@ -1,0 +1,9 @@
+{{ if eq .variant 1  }}
+  <svg class="o-decor" style="opacity: 50%;" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="410.14" height="609.5" viewBox="0 0 108.52 161.26"><path fill="var(--color-{{ .color }})" d="M0 113.22 98.77 0l9.74 161.26z"/></svg>
+{{ else if eq .variant 2 }}
+  <svg class="o-decor" style="opacity: 50%;" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="625" height="570.98" viewBox="0 0 165.36 151.07"><path fill="var(--color-{{ .color }})" d="m0 0 165.37 62.84s-77.54 86.28-79.96 88.21C83 152.98.01 0 .01 0z"/></svg>
+{{ else if eq .variant 3 }}
+  <svg class="o-decor" style="opacity: 50%;" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="587.01" height="487.14" viewBox="0 0 155.31 128.89"><path fill="var(--color-{{ .color }})" d="M0 32.87 155.32 0 57.36 128.89z"/></svg>
+{{ else if eq .variant 4 }}
+  <svg class="o-decor" style="opacity: 50%;" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="476.32" height="585.09" viewBox="0 0 126.03 154.8"><path fill="var(--color-{{ .color }})" d="m0 154.8 126.03-35.72L100.23 0z"/></svg>
+{{ end }}

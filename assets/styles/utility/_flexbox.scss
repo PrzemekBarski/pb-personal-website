@@ -1,0 +1,62 @@
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  $prefix: if($breakpoint-value != 0, "#{$breakpoint-name}\\:", "");
+
+  @include container-query($breakpoint-name) {
+    // `display: flex;` property is defined in `utility/display.scss` file
+
+    .#{$prefix}u-flex-row {
+      flex-direction: row;
+    }
+
+    .#{$prefix}u-flex-col {
+      flex-direction: column;
+    }
+
+    .#{$prefix}u-flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .#{$prefix}u-content-start {
+      justify-content: flex-start;
+    }
+
+    .#{$prefix}u-content-end {
+      justify-content: flex-end;
+    }
+
+    .#{$prefix}u-content-center {
+      justify-content: center;
+    }
+
+    .#{$prefix}u-content-between {
+      justify-content: space-between;
+    }
+
+    .#{$prefix}u-items-start {
+      align-items: flex-start;
+    }
+
+    .#{$prefix}u-items-end {
+      align-items: flex-end;
+    }
+
+    .#{$prefix}u-items-center {
+      align-items: center;
+    }
+
+    @for $i from 1 through 12 {
+      .#{$prefix}u-basis-#{$i} {
+        flex-basis: #{$i * 100 / 12 + "%"};
+      }
+
+      .#{$prefix}u-order-#{$i - 1} {
+        order: #{$i - 1};
+
+        &.v--order-z-index {
+          z-index: #{$i - 1};
+        }
+      }
+    }
+
+  }
+}

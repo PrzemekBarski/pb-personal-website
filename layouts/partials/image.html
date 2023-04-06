@@ -1,0 +1,87 @@
+{{- $asset := .Page.Resources.GetMatch .src -}}
+
+{{- if $asset }}
+  {{- $rem := 16 }}
+  {{- $width := .width }}
+  {{- $height := .height }}
+  {{- $image_versions := slice -}}
+  {{- $image_sizes := slice -}}
+
+  {{ if ne $asset.MediaType.SubType "svg" }}
+
+    {{/* Add image size based on declared width */}}
+    {{- with $width }}
+      {{- $image_width2x := mul . 2 }}
+      {{- $image := $asset -}}
+
+      {{- if not (eq $image_width2x $asset.Width) }}
+        {{- $image := $asset.Resize (printf "%dx" $image_width2x) }}
+        {{- $image_versions = $image_versions | append (printf "%s %dw" $image.RelPermalink $image_width2x) }}
+      {{- end -}}
+
+      {{- if not $height }}
+        {{- $height = div $image.Height 2 }}
+      {{- end }}
+    {{- end -}}
+
+    {{/* Add original image to `srset` just in case */}}
+    {{- $image_versions = $image_versions | append (printf "%s %dw" $asset.RelPermalink $asset.Width) -}}
+
+    {{/* Define responsive breakpoints names and min widths */}}
+    {{- $viewport_breakpoint_names := slice
+      "lg"
+      "md"
+      "sm"
+      "xs"
+      "default"
+    }}
+    {{- $viewport_breakpoint_sizes := slice
+      (mul 70 $rem)
+      (mul 55 $rem)
+      (mul 40 $rem)
+      (mul 30 $rem)
+      (add 375 $rem)
+    -}}
+
+    {{/* Define default <img> `sizes` attribute values map */}}
+    {{- $default_sizes := dict
+      "xs" "calc(100vw - 4rem)"
+      "default" "calc(100vw - 3rem)"
+    -}}
+
+    {{- $defined_image_sizes := .sizes | default $default_sizes }}
+
+    {{/* Generate `sizes` and `srcset` attribute arrays */}}
+    {{- range $size_index, $size_name := $viewport_breakpoint_names }}
+      {{- $size_value := index $viewport_breakpoint_sizes $size_index }}
+      {{- $image_width := sub $size_value (mul 4 $rem) }}
+      {{- $image_width2x := mul $image_width 2 -}}
+
+      {{- if ge $asset.Width $image_width2x }}
+        {{- $image := $asset.Resize (printf "%dx" $image_width2x) }}
+        {{- $image_versions = $image_versions | append (printf "%s %dw" $image.RelPermalink $image_width2x) }}
+      {{- end -}}
+
+      {{- if isset $defined_image_sizes $size_name }}
+        {{- $image_size := index $defined_image_sizes $size_name }}
+        {{- if eq $size_name "default" }}
+          {{- $image_sizes = $image_sizes | append $image_size }}
+        {{- else }}
+          {{- $image_sizes = $image_sizes | append (printf "(min-width: %dpx) %s" $size_value $image_size) }}
+        {{- end }}
+      {{- end }}
+    {{- end -}}
+
+  {{ end }}
+
+  <img
+    src="{{ $asset.RelPermalink }}"
+    {{ if len $image_versions }}srcset="{{ delimit $image_versions ", " }}"{{ end }}
+    {{ if len $image_sizes }}sizes="{{ delimit $image_sizes ", " }}"{{ end }}
+    {{ with .class }}class="{{ . }}"{{ end }}
+    {{ with $width }}width="{{ . }}"{{ end }}
+    {{ with $height }}height="{{ . }}"{{ end }}
+    {{ with .loading }}loading="{{ . }}"{{ end -}}
+    alt="{{ .alt }}"
+  />
+{{- end }}

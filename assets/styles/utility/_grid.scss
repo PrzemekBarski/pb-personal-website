@@ -1,0 +1,49 @@
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  $prefix: if($breakpoint-value != 0, "#{$breakpoint-name}\\:", "");
+
+  @include container-query($breakpoint-name) {
+
+		.#{$prefix}u-grid {
+			display: grid;
+			grid-template-columns: repeat(12, 1fr);
+			gap: 1rem;
+		}
+
+		.#{$prefix}u-grid-rows-eq {
+			grid-auto-rows: 1fr;
+		}
+
+		.#{$prefix}u-grid-rows-auto {
+			grid-auto-rows: 1fr;
+		}
+
+		@for $i from 1 through 6 {
+		  .#{$prefix}u-grid-rows-#{$i} {
+		  	grid-template-rows: repeat(#{$i}, 1fr);
+		  }
+		}
+
+		.#{$prefix}u-grid-no-gap {
+			gap: 0;
+		}
+
+		.#{$prefix}u-grid-col-start-auto {
+			grid-column-start: auto;
+		}
+
+		@for $i from 1 through 12 {
+			.#{$prefix}u-grid-colspan-#{$i} {
+				grid-column-end: span #{$i};
+			}
+
+			.#{$prefix}u-grid-rowspan-#{$i} {
+				grid-row-end: span #{$i};
+			}
+
+			.#{$prefix}u-grid-col-start-#{$i} {
+				grid-column-start: #{$i};
+			}
+		}
+
+  }
+}

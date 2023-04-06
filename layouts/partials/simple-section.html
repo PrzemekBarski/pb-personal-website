@@ -1,0 +1,84 @@
+{{ $image_padding := true }}
+{{- if isset .Params "featured_image" }}
+  {{- if isset .Params.featured_image "padding" }}
+    {{- $image_padding = .Params.featured_image.padding }}
+  {{- end }}
+{{- end }}
+{{- if isset .Params "featured_video" }}
+  {{- if isset .Params.featured_video "padding" }}
+    {{- $image_padding = .Params.featured_video.padding }}
+  {{- end }}
+{{- end }}
+<section class="md:u-grid u-mb-3 u-items-center u-mb-6 sm:u-mb-8 md:u-mb-12" {{- with .Params.model_3d }}data-controller="3d-model-viewer" data-model-url="{{ .url }}.obj" data-material-url="{{ .url }}.mtl"{{ end }}>
+  <div class="u-relative u-ml-1.5 u-mb-1 md:u-mb-1.5 lg:u-mb-0 md:u-ml-0 u-grid-colspan-5 {{ with .Params.inverted }}md:u-order-1 md:u-ml-3{{ else }}md:u-mr-3{{ end }}">
+    {{- with .Params.decor }}
+      {{- partial "decor/triangle" (dict "variant" .variant "color" .color) }}
+    {{- end }}
+    <div class="u-relative">
+      <h2 class="u-text-xl u-text-display u-mt-0">{{ .Title }}</h2>
+      {{ .Content }}
+    </div>
+  </div>
+  <div class="u-text-center u-grid-colspan-7 c-3d-model-viewer u-shadow-solid-sm u-flex u-relative {{ if .Params.badge }}u-mt-4 md:u-mt-0{{ end }}">
+    {{- if .Params.badge }}
+      {{- $image := resources.Get "images/kolejarz.png" }}
+      {{- with $image }}
+        <img src="{{ $image.RelPermalink }}" alt='Odznaka: napis "Wybór Kolejarza" i zdjęcie tegoż kolejarza' class="c-badge" width="160" height="180">
+      {{- end }}
+    {{- end }}
+    <div class="u-w-full u-bg-{{ .Params.color }} {{ if $image_padding }}u-p-2{{ end }}">
+      {{- with .Params.featured_image }}
+        {{- $sizes := dict
+            "default" "calc(100vw - 3rem - 10px)"
+            "xs" "calc(100vw - 4rem - 10px)"
+            "md" "calc((100vw - 4rem) / 12 * 7 - 10px)"
+            "lg" "649px"
+        }}
+        {{- partial "image" (dict
+          "src" .src
+          "alt" .alt
+          "width" .width
+          "height" .height
+          "sizes" $sizes
+          "class" "u-w-full u-block"
+          "Page" $)
+        }}
+      {{- end }}
+      {{- with .Params.featured_video }}
+        {{- $video := $.Resources.GetMatch .src }}
+        {{- $poster := $.Resources.GetMatch .poster | default false -}}
+        <video
+          src=""
+          data-src="{{ $video.RelPermalink }}"
+          autoplay
+          muted
+          loop
+          playsinline
+          {{ with .width }}width="{{ . }}"{{ end }}
+          {{ with .height }}height="{{ . }}"{{ end }}
+          {{ with $poster}}poster="{{ .RelPermalink }}"{{ end }}
+          class="u-w-full u-block"
+          data-controller="lazy-video"
+        ></video>
+      {{- end }}
+      {{- with .Params.model_3d }}
+        {{ $loader := resources.Get "icons/loader.svg" }}
+        <img src="{{ $loader.RelPermalink }}" alt="Ładowanie modelu 3D" class="c-3d-model-viewer__loader" data-3d-model-viewer-target="loader">
+        <span class="sm:u-hidden" data-3d-model-viewer-target="mobileTest"></span>
+        <div class="c-3d-model-viewer__container u-bg-{{ $.Params.color }}" data-3d-model-viewer-target="container">
+          <span class="c-3d-model-viewer__icon u-text-center">
+            {{ $3d_view := resources.Get "icons/rotate.svg" }}
+            <img src="{{ $3d_view.RelPermalink }}" alt="" width="28" height="28" />
+            <p class="u-m-0">3D</p>
+          </span>
+        </div>
+
+      {{- end }}
+    </div>
+  </div>
+  {{- with .Params.model_3d }}
+    <button class="c-button u-absolute v--white sm:u-hidden u-mt-1" data-action="3d-model-viewer#load" data-3d-model-viewer-target="loadButton">
+      <span class="c-button__content">Pokaż model 3D ({{ .size }})</span>
+    </button>
+  {{- end }}
+</section>

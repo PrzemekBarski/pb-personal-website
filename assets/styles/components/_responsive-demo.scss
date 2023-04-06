@@ -1,0 +1,74 @@
+.c-responsive-demo {
+  --mobile-width: 375px;
+  --tablet-width: 768px;
+
+  transition: width 2s ease-in-out;
+
+  &.v--mobile {
+    height: 50vh;
+  }
+
+  &.v--mobile &__container {
+    transform-origin: 0 0;
+    animation-name: responsive-demo-mobile;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    max-width: none;
+  }
+
+  &.v--mobile.v--restore {
+    height: auto;
+  }
+
+  &.v--desktop &__container {
+    transform-origin: 50% 0;
+    animation-name: responsive-demo-desktop;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+  }
+
+  &.v--mobile.v--restore &__container {
+    animation-name: responsive-demo-mobile-restore;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+
+  &.v--desktop.v--restore &__container {
+    animation-name: responsive-demo-desktop-restore;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+
+  &__back {
+    display: none;
+  }
+
+  &.v--desktop &__back {
+    display: block;
+  }
+
+  &.v--restore &__back {
+    display: none;
+  }
+}
+
+@keyframes responsive-demo-desktop {
+  0%   {width: var(--original-width); transform: scale(1);}
+  50%  {width: var(--mobile-width); transform: scale(0.5);}
+  100% {width: var(--mobile-width); transform: scale(1);}
+}
+
+@keyframes responsive-demo-mobile {
+  from {width: var(--original-width);}
+  to   {width: var(--tablet-width); transform: scale(0.5);}
+}
+
+@keyframes responsive-demo-desktop-restore {
+  from {width: var(--mobile-width);}
+  to   {width: var(--original-width);}
+}
+
+@keyframes responsive-demo-mobile-restore {
+  from {width: var(--tablet-width); transform: scale(0.5);}
+  to   {width: var(--original-width); transform: scale(1);}
+}

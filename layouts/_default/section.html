@@ -1,0 +1,59 @@
+{{- define "main" -}}
+
+{{- $footer_grid := false }}
+{{- if isset .Params "footer" }}
+  {{- if isset .Params.footer "grid" }}
+    {{- $footer_grid = .Params.footer.grid }}
+  {{- end }}
+{{- end -}}
+
+<div class="o-wrapper c-responsive-demo" data-controller="responsive-demo">
+  <div class="o-container c-responsive-demo__container u-py-1.5 u-bg-gray-1" data-target="responsive-demo.container">
+    <span class="sm:u-hidden" data-responsive-demo-target="mobileTest"></span>
+
+    <div class="u-mb-2">
+      {{ $back_icon := resources.Get "icons/back.svg" }}
+      <a href="/" class="c-link u-link-reset u-text-white u-flex u-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="22.32" height="25" viewBox="0 0 5.91 6.61"><g style="fill:#00222b;stroke-width:.998674"><path d="m443.33 316.63 1.32 1.32v5.28l-4.57-2.64-1.33-1.32z" style="vector-effect:non-scaling-stroke;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:.264232;stroke-dasharray:none;stroke-opacity:1;-inkscape-stroke:hairline" transform="translate(-414.06577,-316.9375) matrix(1.0013279,0,0,1.0013279,-25.271562,-0.10803723)"/><path d="m443.33 316.63-4.58 2.64 4.58 2.64v-5.28" style="vector-effect:non-scaling-stroke;fill:currentColor;fill-opacity:1;stroke:none;stroke-width:.264232;stroke-dasharray:none;stroke-opacity:1;-inkscape-stroke:hairline" transform="translate(-414.06577,-316.9375) matrix(1.0013279,0,0,1.0013279,-25.271562,-0.10803723)"/></g></svg>
+        <span class="u-text-lg u-text-display u-ml-1 u-text-shadow">Strona główna</span>
+      </a>
+    </div>
+
+    <div
+      class="u-sticky c-responsive-demo__back"
+      style="top: 1rem; z-index: 20;"
+    >
+      <button class="c-button" data-action="responsive-demo#restore">
+        <span class="c-button__content">Przywróć wersję destop</span>
+      </button>
+    </div>
+
+    <section class="u-text-white">
+
+      <div class="u-grid u-mb-8">
+        {{- partial "content-card" . -}}
+
+        {{- $cards := where .RegularPages ".Params.type" "card" }}
+        {{- range $cards }}
+          {{ partial "content-card" . }}
+        {{- end -}}
+
+        {{- if $footer_grid }}
+          {{- partial "contact-card" (dict "class" "u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-12 u-order-9 v--order-z-index") }}
+        {{- end }}
+      </div>
+
+      {{- $sections := where .RegularPages ".Params.type" "!=" "card" }}
+      {{- range sort $sections ".Params.order" }}
+        {{- partial "simple-section" . }}
+      {{- end -}}
+
+      {{- if not $footer_grid }}
+        {{- partial "contact-card" }}
+      {{- end }}
+    </section>
+
+  </div>
+</div>
+
+{{ end }}

@@ -1,0 +1,53 @@
+$sizes: (
+  "0": 0,
+  "0\\.25": 0.25,
+  "0\\.5": 0.5,
+  "0\\.75": 0.75,
+  "1": 1,
+  "1\\.5": 1.5,
+  "2": 2,
+  "2\\.5": 2.5,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "8": 8,
+  "10": 10,
+  "12": 12,
+  "16": 16,
+  "20": 20
+);
+$types: "l", "r", "t", "b", "x", "y", "";
+$spacing-kinds: ("p": "padding", "m": "margin");
+$signs: ("": "", "n": "-");
+
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  $prefix: if($breakpoint-value != 0, "#{$breakpoint-name}\\:", "");
+
+  @include container-query($breakpoint-name) {
+
+    @each $sign-name, $sign in $signs {
+      @each $kind-slug, $kind-name in $spacing-kinds {
+        @each $type in $types {
+          @each $size-name, $size in $sizes {
+            .#{$prefix}u-#{$kind-slug}#{$type}#{$sign-name}-#{$size-name} {
+              @if $type == "l" or $type == "x" or $type == "" {
+                #{$kind-name}-left: #{$sign}#{$size}rem;
+              }
+              @if $type == "r" or $type == "x" or $type == "" {
+                #{$kind-name}-right: #{$sign}#{$size}rem;
+              }
+              @if $type == "t" or $type == "y" or $type == "" {
+                #{$kind-name}-top: #{$sign}#{$size}rem;
+              }
+              @if $type == "b" or $type == "y" or $type == "" {
+                #{$kind-name}-bottom: #{$sign}#{$size}rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

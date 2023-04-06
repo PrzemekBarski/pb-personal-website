@@ -1,0 +1,22 @@
+{{- $class := .class | default "" }}
+<footer class="{{ $class }} u-shadow-solid-md u-text-sm u-flex">
+  <div class="u-bg-green u-py-1.5 u-px-1.5 u-basis-12 u-flex u-flex-col xs:u-flex-row u-items-center u-content-center u-text-center sm:u-text-left">
+    <div class="xs:u-pr-2 sm:u-pr-3 u-mb-1.5 xs:u-mb-0">
+      {{- $image := resources.Get "images/przemyslaw-barski.png" }}
+      <img src="{{ $image.RelPermalink }}" alt="Przemysław Barski" width="120" height="120" />
+    </div>
+    <div class="u-text-left u-text-xs">
+      <h2 class="u-mt-0 u-text-display u-text-bold u-text-lg u-mt-0">Przemysław Barski</h2>
+      {{- $email := resources.Get "icons/envelope-solid.svg" }}
+      {{- $phone := resources.Get "icons/phone-solid.svg" }}
+      <a href="mailto:barski.przemyslaw@gmail.com" class="u-flex u-items-center u-text-white u-mb-0.75">
+        <img src="{{ $email.RelPermalink }}" alt="Email" width="14" class="u-mr-0.5" />
+        <span>barski.przemyslaw@gmail.com</span>
+      </a>
+      <a href="tel:+48696-851-288" class="u-flex u-items-center u-text-white u-mb-0.75">
+        <img src="{{ $phone.RelPermalink }}" alt="Numer telefonu" width="14" class="u-mr-0.5" />
+        <span>+48 696 851 288</span>
+      </a>
+    </div>
+  </div>
+</footer>

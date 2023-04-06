@@ -1,0 +1,5 @@
+.c-link {
+  &:hover {
+    color: #{map-get($colors, "highlight")};
+  }
+}

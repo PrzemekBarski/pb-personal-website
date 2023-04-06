@@ -1,0 +1,62 @@
+.u-link-reset {
+  color: inherit;
+  text-decoration: none;
+}
+
+.u-text-shadow {
+  text-shadow: 3px 3px black;
+}
+
+.u-text-display {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+}
+
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  $prefix: if($breakpoint-value != 0, "#{$breakpoint-name}\\:", "");
+
+  @include container-query($breakpoint-name) {
+
+    .#{$prefix}u-text-left {
+      text-align: left;
+    }
+
+    .#{$prefix}u-text-right {
+      text-align: right;
+    }
+
+    .#{$prefix}u-text-center {
+      text-align: center;
+    }
+
+    .#{$prefix}u-text-xs {
+      font-size: 0.875rem;
+    }
+
+    .#{$prefix}u-text-sm {
+      font-size: 1rem;
+    }
+
+    .#{$prefix}u-text-md {
+      font-size: 1.125rem;
+    }
+
+    .#{$prefix}u-text-lg {
+      font-size: 1.5rem;
+    }
+
+    .#{$prefix}u-text-xl {
+      font-size: 2rem;
+    }
+
+    .#{$prefix}u-text-2xl {
+      font-size: 3rem;
+    }
+
+    .#{$prefix}u-text-bold {
+      font-weight: 700;
+    }
+
+  }
+}

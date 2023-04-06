@@ -1,0 +1,10 @@
+{{ $param_classes := slice }}
+{{ $param_name := .param_name }}
+{{ range $breakpoint, $value := .param }}
+  {{ if eq $breakpoint "default" }}
+    {{ $param_classes = $param_classes | append (printf "u-%s-%d" $param_name $value) }}
+  {{ else }}
+    {{ $param_classes = $param_classes | append (printf "%s:u-%s-%d" $breakpoint $param_name $value)  }}
+  {{ end }}
+{{ end }}
+{{ return (delimit $param_classes " ") }}

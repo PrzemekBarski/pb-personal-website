@@ -1,0 +1,20 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $width := .Get "width" }}
+{{ $loading := .Get "loading" }}
+{{ $height := .Get "height"  }}
+{{ $class := .Get "class" }}
+{{ $sizes := .Get "sizes" }}
+
+{{ if $src }}
+  {{ partial "image" (dict
+      "src" $src
+      "alt" $alt
+      "loading" $loading
+      "width" (int $width)
+      "height" $height
+      "class" $class
+      "sizes" $sizes
+      "Page" .Page)
+  }}
+{{ end }}

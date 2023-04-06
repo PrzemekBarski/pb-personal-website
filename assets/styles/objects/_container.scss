@@ -1,0 +1,13 @@
+.o-container {
+  width: calc(1140px + #{2 * $container-padding-mobile});
+  max-width: 100%;
+  padding: 0 #{$container-padding-mobile};
+  margin: 0 auto;
+  container-type: inline-size;
+}
+
+@media (min-width: #{map-get($breakpoints, "xs")}) {
+  .o-container {
+    padding: 0 #{$container-padding};
+  }
+}

@@ -1,0 +1,16 @@
+.c-badge {
+  position: absolute;
+  top: -60px;
+  right: -20px;
+  z-index: 5;
+  width: 120px;
+
+  @include container-query(sm) {
+    right: 0;
+    width: 160px;
+  }
+
+  @include container-query(lg) {
+    right: -60px;
+  }
+}

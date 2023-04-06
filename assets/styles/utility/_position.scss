@@ -1,0 +1,27 @@
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  $prefix: if($breakpoint-value != 0, "#{$breakpoint-name}\\:", "");
+
+  @include container-query($breakpoint-name) {
+
+    .#{$prefix}u-relative {
+      position: relative;
+    }
+
+    .#{$prefix}u-absolute {
+      position: absolute;
+    }
+
+    .#{$prefix}u-static {
+      position: relative;
+    }
+
+    .#{$prefix}u-sticky {
+      position: sticky;
+    }
+
+    .#{$prefix}u-fixed {
+      position: fixed;
+    }
+
+  }
+}

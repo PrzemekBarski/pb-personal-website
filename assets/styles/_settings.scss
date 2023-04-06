@@ -1,0 +1,35 @@
+$container-padding: 2rem;
+$container-padding-mobile: 1.5rem;
+
+:root {
+  --color-black: #0d0d0d;
+  --color-white: #fff;
+  --color-gray-1: #525252;
+  --color-gray-2: #242424;
+  --color-gray-3: #1a1a1a;
+  --color-red: #521314;
+  --color-green: #004052;
+  --color-blue: #1c1c50;
+  --color-highlight: #b97f00;
+}
+
+$colors: (
+  "black": var(--color-black),
+  "white": var(--color-white),
+  "gray-1": var(--color-gray-1),
+  "gray-2": var(--color-gray-2),
+  "gray-3": var(--color-gray-3),
+  "red": var(--color-red),
+  "green": var(--color-green),
+  "blue": var(--color-blue),
+  "highlight": var(--color-highlight)
+);
+
+$breakpoints: (
+  "": 0,
+  xs: 30rem,
+  sm: 40rem,
+  md: 55rem,
+  lg: 70rem,
+  xl: 85rem
+);

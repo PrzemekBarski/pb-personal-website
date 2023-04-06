@@ -1,0 +1,81 @@
+<!doctype html>
+
+{{- $scss_options := dict "includePaths" "node_modules/basiclightbox/src/styles/main.scss" "outputStyle" "compressed" -}}
+
+{{- if .Params.container_query }}
+  {{- $alt_scss := resources.Get "main-container-query.scss" }}
+  {{- $alt_style := $alt_scss | resources.ToCSS $scss_options }}
+  <html lang="pl" data-controller="container-query" data-alt-stylesheet="{{ $alt_style.RelPermalink }}">
+{{- else }}
+  <html lang="pl">
+{{- end }}
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ partial "seo-title" . }}</title>
+  {{- with .Page.Description }}
+    <meta name="description" content="{{ . }}">
+  {{- end }}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="{{ partial "seo-title" . }}">
+  <meta property="twitter:title" content="{{ partial "seo-title" . }}">
+  {{- with .Page.Description }}
+    <meta name="og:description" content="{{ . }}">
+    <meta name="twitter:description" content="{{ . }}">
+  {{- end }}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- $og_image := resources.Get "images/og-image.jpg" }}
+  {{ with $og_image }}
+    <meta property="og:image" content="{{ .Permalink }}">
+    <meta property="twitter:image" content="{{ .Permalink }}">
+  {{ end }}
+
+  {{- $favicon := resources.Get "images/favicon.ico" }}
+  <link rel="icon" href="{{ $favicon.RelPermalink }}" sizes="any">
+  {{- $icon := resources.Get "images/icon.svg" }}
+  <link rel="icon" href="{{ $icon.RelPermalink }}" type="image/svg+xml">
+  {{- $apple_icon := resources.Get "images/icon.png" }}
+  <link rel="apple-touch-icon" href="{{ $apple_icon.RelPermalink }}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  {{- $scss := resources.Get "main.scss" }}
+  {{- $style := $scss | resources.ToCSS $scss_options }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{- if .Params.container_query }}data-container-query-target="stylesheet"{{ end }}>
+
+  <meta name="theme-color" content="#525252">
+
+  {{ $pb_image := resources.Get "images/przemyslaw-barski.png" }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "email": "mailto:barski.przemyslaw@gmail.com",
+    "image": "{{ $pb_image.Permalink }}",
+    "jobTitle": "Projektowanie elektroniki, Web Developer",
+    "name": "Przemysław Barski",
+    "telephone": "+48 696 851 288",
+    "url": "https://przemyslawbarski.netlify.app/",
+    "brand": "Stray Cat Electronics"
+  }
+  </script>
+
+</head>
+
+<body class="u-bg-gray-1">
+  {{- block "main" . }}
+    {{ .Content }}
+  {{- end }}
+  {{- $js_options := dict "minify" true }}
+  {{- $js := resources.Get "main.js" | js.Build $js_options }}
+  <script src="{{ $js.RelPermalink }}"></script>
+  {{- with .Params.scripts }}
+    {{- range . }}
+      {{- $js := resources.Get . | js.Build $js_options }}
+      <script src="{{ $js.RelPermalink }}"></script>
+    {{- end }}
+  {{- end }}
+</body>
+
+</html>

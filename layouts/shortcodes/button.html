@@ -1,0 +1,6 @@
+{{- $url := .Get "url" }}
+{{- $class := .Get "class" }}
+{{- $target := .Get "target" }}
+<a href="{{ $url }}" class="c-button v--lg {{ $class }}" {{ with $target }}target="{{ . }}"{{ end }}>
+  <span class="c-button__content">{{ .Inner }}</span>
+</a>

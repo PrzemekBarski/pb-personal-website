@@ -1,0 +1,17 @@
+{{ $size_classes := "u-grid-colspan-12 sm:u-grid-colspan-6 md:u-grid-colspan-4 lg:u-grid-colspan-3" }}
+
+{{ if eq . "medium-small" }}
+  {{ $size_classes = "u-grid-colspan-12 sm:u-grid-colspan-6 md:u-grid-colspan-4 lg:u-grid-colspan-4" }}
+{{ else if eq . "medium" }}
+  {{ $size_classes = "u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-6" }}
+{{ else if eq . "wide" }}
+  {{ $size_classes = "u-grid-colspan-12 lg:u-grid-colspan-9" }}
+{{ else if eq . "medium-large" }}
+  {{ $size_classes = "u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-5 md:u-grid-rowspan-2" }}
+{{ else if eq . "large" }}
+  {{ $size_classes = "u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-6 md:u-grid-rowspan-2" }}
+{{ else if eq . "full" }}
+  {{ $size_classes = "u-grid-colspan-12" }}
+{{ end }}
+
+{{ return $size_classes }}

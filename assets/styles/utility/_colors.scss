@@ -1,0 +1,13 @@
+$color-targets: (
+  "bg": "background-color",
+  "text": "color",
+  "border": "border-color"
+);
+
+@each $target-name, $target-style in $color-targets {
+  @each $color-name, $color in $colors {
+    .u-#{$target-name}-#{$color-name} {
+      #{$target-style}: $color;
+    }
+  }
+}

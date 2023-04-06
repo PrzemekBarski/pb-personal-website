@@ -1,0 +1,29 @@
+{
+  "name": "pb-personal-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "assets/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrzemekBarski/pb-personal-website.git"
+  },
+  "author": "Przemysław Barski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrzemekBarski/pb-personal-website/issues"
+  },
+  "homepage": "https://github.com/PrzemekBarski/pb-personal-website#readme",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
+    "basiclightbox": "^5.0.4",
+    "container-query-polyfill": "^1.0.2",
+    "three": "^0.151.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.37.0",
+    "stylelint": "^15.4.0"
+  }
+}

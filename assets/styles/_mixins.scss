@@ -1,0 +1,13 @@
+@mixin container-query($breakpoint-name, $range: "min") {
+  $breakpoint-value: map-get($breakpoints, $breakpoint-name);
+
+  @if $breakpoint-value != 0 {
+    @if $enable-container-query {
+      @container (#{$range}-width: #{$breakpoint-value - 2 * $container-padding}) { @content; }
+    } @else {
+      @media (#{$range}-width: #{$breakpoint-value}) { @content; }
+    }
+  } @else {
+    @content;
+  }
+}

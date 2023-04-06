@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@300;700&display=swap');
+
+$enable-container-query: false;
+
+@import "styles/settings";
+@import "styles/mixins";
+@import "styles/objects/index";
+@import "styles/components/index";
+@import "styles/utility/index";
+@import "styles/general";

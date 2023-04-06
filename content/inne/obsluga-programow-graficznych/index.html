@@ -1,0 +1,45 @@
+---
+Title: Obsługa programów graficznych
+type: card
+card_color: blue
+card_order:
+  default: 1
+card_size: medium
+---
+
+<div class="sm:u-flex u-items-center" data-controller="lightbox">
+  <ul class="u-mb-1 sm:u-mb-0 u-mt-0 u-basis-5 sm:u-mr-1">
+    <li class="u-mb-0.25">Adobe Illustrator</li>
+    <li class="u-mb-0.25">Adobe Photoshop</li>
+    <li class="u-mb-0.25">Figma</li>
+    <li class="u-mb-0">Inkscape</li>
+  </ul>
+  <div class="u-basis-7">
+    <button class="c-button v--no-transform" data-action="lightbox#show">
+      <span class="c-button__content">Zobacz projekty</span>
+    </a>
+  </div>
+  <script type="text/html" data-target="lightbox.content" >
+    <div class="u-text-center u-text-white u-bg-gray-3 u-py-4" style="overflow: auto; height: 100%; width: 100%;">
+      <button class="u-absolute" style="right: 24px; top: 24px;" data-action="lightbox#close">
+        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30" height="30" viewBox="0 0 7.94 7.94"><g fill="#fff" color="#000"><path d="m.37.37 7.2 7.19M.75 0 0 .74l7.19 7.2.75-.75zM.37 7.56 7.57.37"/><path d="m7.19 0-7.2 7.19.76.74L7.94.74z"/></g></svg>
+      </button>
+      <figure class="u-mb-6">
+        {{< image src="nowy-folder.png" width="600" class="u-mb-1" >}}
+        <figcaption class="u-text-lg">Projekt okładki albumu "Przykładowa Muzyka - Nowy Folder"</figcaption>
+      </figure>
+      <figure class="u-mb-6">
+        {{< image src="broszura.jpeg" width="800" class="u-mb-1" >}}
+        <figcaption class="u-text-lg">Broszura zespołu Bleeding Moses na festiwal Enea Spring Break 2019</figcaption>
+      </figure>
+      <figure class="u-mb-6">
+        <div class="u-flex u-content-center u-mb-1">
+          <div class="u-p-2 u-bg-black">
+            {{< image src="proproba-logo-white.svg" width="600" class="u-block" >}}
+          </div>
+        </div>
+        <figcaption class="u-text-lg">Logo bloga <a href="https://proproba.pl" target="_blank">propróba.pl</a></figcaption>
+      </figure>
+    </div>
+  </script>
+</div>
