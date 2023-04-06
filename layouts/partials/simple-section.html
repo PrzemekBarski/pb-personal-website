@@ -48,8 +48,6 @@
         {{- $video := $.Resources.GetMatch .src }}
         {{- $poster := $.Resources.GetMatch .poster | default false -}}
         <video
-          src=""
-          data-src="{{ $video.RelPermalink }}"
           autoplay
           muted
           loop
@@ -59,7 +57,9 @@
           {{ with $poster}}poster="{{ .RelPermalink }}"{{ end }}
           class="u-w-full u-block"
           data-controller="lazy-video"
-        ></video>
+        >
+          <source src="" data-src="{{ $video.RelPermalink }}">
+        </video>
       {{- end }}
       {{- with .Params.model_3d }}
         {{ $loader := resources.Get "icons/loader.svg" }}
