@@ -16,7 +16,7 @@ export default class extends Controller {
 
       setTimeout(() => {
         this.stylesheetTarget.parentNode.removeChild(this.stylesheetTarget);
-      }, 20);
+      }, 200);
     }, 100);
   }
 
