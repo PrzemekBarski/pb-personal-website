@@ -13,9 +13,9 @@
   <div class="u-bg-{{ $color }} u-py-2 u-px-1.5 u-w-full {{ with .Params.card_centered }}{{ $centered_classes }}{{ end }} {{ if $featured }}u-text-sm xs:u-text-md{{ end }}">
     {{- with .Params.card_centered }}<div>{{ end }}
       {{- if $featured }}
-        <h1 class="u-text-2xl u-text-display u-mt-0 {{ if eq .Content "" }}u-mb-0{{ else }}u-mb-1.5{{ end }} u-flex u-flex-wrap u-items-center u-content-between">
+        <h1 class="u-text-xl xs:u-text-2xl u-text-display u-mt-0 {{ if eq .Content "" }}u-mb-0{{ else }}u-mb-1.5{{ end }} u-flex u-flex-wrap u-items-center u-content-between">
       {{- else }}
-        <h2 class="u-text-xl u-mb-1 u-text-display u-mt-0 u-flex u-items-center u-content-between">
+        <h2 class="u-text-lg xs:u-text-xl u-mb-1 u-text-display u-mt-0 u-flex u-items-center u-content-between">
       {{- end }}
           <span>{{ .Title }}</span>
           {{ with .Params.card_icon }}
