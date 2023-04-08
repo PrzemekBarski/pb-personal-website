@@ -5,18 +5,28 @@ export default class extends Controller {
   static targets = [ "stylesheet" ];
 
   connect() {
-    var link = document.createElement("link");
+    this.onWindowLoadFunction = this.onWindowLoad.bind(this);
+    window.addEventListener("load", this.onWindowLoadFunction);
+  }
 
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    link.href = this.element.dataset.altStylesheet;
+  disconnect() {
+    window.removeEventListener("load", this.onWindowLoadFunction);
+  }
 
+  onWindowLoad() {
     setTimeout(() => {
+      let link = document.createElement("link");
+      link.type = "text/css";
+      link.rel = "stylesheet";
+      link.href = this.element.dataset.altStylesheet;
+      link.onload = this.onStylesheetLoad.bind(this);
       this.stylesheetTarget.before(link);
+    }, 100);
+  }
 
-      setTimeout(() => {
-        this.stylesheetTarget.parentNode.removeChild(this.stylesheetTarget);
-      }, 200);
+  onStylesheetLoad() {
+    setTimeout(() => {
+      this.stylesheetTarget.parentNode.removeChild(this.stylesheetTarget);
     }, 100);
   }
 

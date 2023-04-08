@@ -7,6 +7,10 @@ export default class extends Controller {
     this.lazyVideoObserver.observe(this.element);
   }
 
+  disconnect() {
+    this.lazyVideoObserver.unobserve(this.element);
+  }
+
   handleIntersection(entries, observer) {
     entries.forEach(function(video) {
       if (video.isIntersecting) {

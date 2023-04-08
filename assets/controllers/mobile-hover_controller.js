@@ -36,6 +36,22 @@ export default class extends Controller {
     }
   }
 
+  disconnect() {
+    if (this.isTablet()) {
+      this.elementTargets.forEach(element => {
+        element.removeEventListener("click", this.handleClickFunction);
+      });
+
+      this.elementTargets.forEach(element => {
+        element.removeEventListener("mouseenter", this.handleMouseoverFunction);
+      });
+
+      this.elementTargets.forEach(element => {
+        element.removeEventListener("mouseleave", this.handleMouseleaveFunction);
+      });
+    }
+  }
+
   isMobile() {
     if (this.mobileTestTarget.offsetParent === null) {
       return false;
