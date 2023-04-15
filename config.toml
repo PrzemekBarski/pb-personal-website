@@ -5,8 +5,10 @@ disableKinds = ['taxonomy', 'term']
 [languages]
   [languages.pl]
     weight = 2
+    button = "Wersja polska"
   [languages.en]
     weight = 1
+    button = "English Version"
 
 [params]
   title_prefix = 'Przemysław Barski - '
