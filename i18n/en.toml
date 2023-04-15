@@ -22,3 +22,5 @@
   other = "images/railwayman-en.png"
 [badge_alt]
   other = "\"Railwayman’s Choice\" badge with a picture of said railwayman"
+[back_to_desktop]
+  other = "Back to desktop version"
