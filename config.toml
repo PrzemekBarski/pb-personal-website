@@ -1,6 +1,12 @@
 baseURL = 'https://przemyslawbarski.netlify.app/'
-languageCode = 'pl-PL'
-title = 'Przemysław Barski - Projekty elektroniczne, programowanie, web development'
+defaultContentLanguage = 'pl'
 disableKinds = ['taxonomy', 'term']
+
+[languages]
+  [languages.pl]
+    weight = 2
+  [languages.en]
+    weight = 1
+
 [params]
   title_prefix = 'Przemysław Barski - '

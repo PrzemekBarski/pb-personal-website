@@ -16,7 +16,7 @@ cascade:
     render: never
 ---
 
-Kodowaniem stron zajmuję się od dziewięciu lat. Przez pięć lat pracowałem w firmie **Chop-Chop.org**, gdzie tworzyłem przede wszystkim szablony i pluginy Wordpress. Z pomocą wspaniałych devów których tam poznałem postawiłem swoje pierwsze kroki w tworzeniu internetu i nauczyłem się programowania obiektowego w PHP.
+Kodowaniem stron zajmuję się od dziewięciu lat. Przez pięć lat pracowałem w firmie **Chop-Chop.org**, gdzie tworzyłem przede wszystkim szablony i [pluginy](https://profiles.wordpress.org/chopchoporg/#content-plugins) Wordpress. Z pomocą wspaniałych devów których tam poznałem postawiłem swoje pierwsze kroki w tworzeniu internetu i nauczyłem się programowania obiektowego w PHP.
 
 Kolejne 4 lata pracowałem w dziale marketingu firmy **LiveChat** (obecnie **Text.com**). Kodowałem tam głównie landing page nastawione na SEO, czasem większe sekcje jak Careers lub Help Center, a niekiedy też bardziej rozbudowane aplikacje jak np. napisana z pomocą Vue.js strona Customer Service Report. Do budowy stron korzystaliśmy z generatora stron statycznych Hugo. Oprócz nowych technologii nauczyłem się tam bardzo wiele o marketingu produktów w modeu SaaS.
 

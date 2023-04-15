@@ -1,0 +1,24 @@
+[email]
+  other = 'Email'
+[phone]
+  other = 'Phone'
+[electronics]
+  other = "Electronic design"
+[electronics_img]
+  other = "Picture of an analog microphone preamplifier"
+[web_development]
+  other = "Web Development"
+[web_development_img]
+  other = "Screenshot of text editor with PHP code"
+[other]
+  other = "Other"
+[other_img]
+  other = "Picture of Przemysław Barski playing bass guitar with a band"
+[explore]
+  other = "Explore"
+[home]
+  other = "Home"
+[badge_src]
+  other = "images/railwayman-en.png"
+[badge_alt]
+  other = "\"Railwayman’s Choice\" badge with a picture of said railwayman"
