@@ -2,7 +2,7 @@
 Title: Stray Cat Riddle Machine
 featured_image:
   src: riddle-machine.png
-  alt: Zdjęcie kontrolera MIDI Stray Cat Bass Pedals
+  alt: Komputerowa wizualizacja efektu gitarowego Stray Cat Riddle Machine
   loading: lazy
   width: 665
   height: 486
