@@ -1,0 +1,26 @@
+[email]
+  other = 'Email'
+[phone]
+  other = 'Numer telefonu'
+[electronics]
+  other = "Elektronika"
+[electronics_img]
+  other = "Obrazek przedstawiający analogowy przedwzmacniacz mikrofonowy"
+[web_development]
+  other = "Web development"
+[web_development_img]
+  other = "Zrzut ekranu przedstawiający kod PHP w edytorze tekstu"
+[other]
+  other = "Inne"
+[other_img]
+  other = "Zdjęcie Przemysława Barskiego grającego na gitarze basowej wraz z zespołem"
+[explore]
+  other = "Zobacz"
+[home]
+  other = "Strona główna"
+[badge_src]
+  other = "images/kolejarz-pl.png"
+[badge_alt]
+  other = "Odznaka: napis \"Wybór Kolejarza\" i zdjęcie tegoż kolejarza"
+[back_to_desktop]
+  other = "Przywróć wersję destop"

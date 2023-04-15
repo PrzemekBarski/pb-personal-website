@@ -1,0 +1,10 @@
+{{ if .IsTranslated }}
+<div class="u-text-right">
+  {{ range .Translations }}
+    {{ $flag := resources.Get (printf "icons/%s.svg" .Lang) }}
+    <a href="{{ .Permalink }}" class="u-block u-shadow-solid-xs v--no-transform">
+      <img src="{{ $flag.RelPermalink }}" alt="" width="36" class="u-block">
+    </a>
+  {{ end }}
+</div>
+{{ end }}

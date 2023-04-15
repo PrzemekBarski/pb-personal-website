@@ -4,8 +4,6 @@ description: Projektowanie elektroniki analogowej i cyfrowej. Studyjne i scenicz
 card_size: medium-large
 card_color: black
 card_featured: true
-card_icon: stray-cat.svg
-card_icon_width: 127
 scripts:
   - 3d-viewer.js
 _build:
@@ -17,6 +15,8 @@ cascade:
     render: never
 ---
 
-Komercyjne projekty elektroniczne realizuję od 2012 roku, do tej pory wykonałem ich kilkadziesiąt. Konstruuję przede wszystkim analogowe i cyfrowe urządzenia dla muzyków i studiów nagrań, ale projektowałem również urządzenia dla przemysłu kolejowego.
+{{< image src="stray-cat.svg" width="100" height="25" class="u-mb-0.75" >}}
+
+Komercyjne projekty elektroniczne realizuję od 2012 roku, do tej pory wykonałem ich kilkadziesiąt. Specjalizuję się w analogowych i cyfrowych urządzeniach dla muzyków i studiów nagrań, ale projektowałem również urządzenia dla przemysłu kolejowego.
 
 Posiadam dobrze wyposażone i zabezpieczone przed ESD laboratorium w którym mogę wykonywać wysokiej jakości prototypy.

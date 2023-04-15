@@ -10,11 +10,11 @@
       {{- $email := resources.Get "icons/envelope-solid.svg" }}
       {{- $phone := resources.Get "icons/phone-solid.svg" }}
       <a href="mailto:barski.przemyslaw@gmail.com" class="u-flex u-items-center u-text-white u-mb-0.75">
-        <img src="{{ $email.RelPermalink }}" alt="Email" width="14" class="u-mr-0.5" />
+        <img src="{{ $email.RelPermalink }}" alt="{{ i18n "email" }}" width="14" class="u-mr-0.5" />
         <span>barski.przemyslaw@gmail.com</span>
       </a>
       <a href="tel:+48696-851-288" class="u-flex u-items-center u-text-white u-mb-0.75">
-        <img src="{{ $phone.RelPermalink }}" alt="Numer telefonu" width="14" class="u-mr-0.5" />
+        <img src="{{ $phone.RelPermalink }}" alt="{{ i18n "phone" }}" width="14" class="u-mr-0.5" />
         <span>+48 696 851 288</span>
       </a>
     </div>

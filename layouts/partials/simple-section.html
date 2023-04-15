@@ -21,9 +21,9 @@
   </div>
   <div class="u-text-center u-grid-colspan-7 c-3d-model-viewer u-shadow-solid-sm u-flex u-relative {{ if .Params.badge }}u-mt-4 md:u-mt-0{{ end }}">
     {{- if .Params.badge }}
-      {{- $image := resources.Get "images/kolejarz.png" }}
+      {{- $image := resources.Get (i18n "badge_src") }}
       {{- with $image }}
-        <img src="{{ $image.RelPermalink }}" alt='Odznaka: napis "Wybór Kolejarza" i zdjęcie tegoż kolejarza' class="c-badge" width="160" height="180">
+        <img src="{{ $image.RelPermalink }}" alt="{{ i18n "badge_alt" }}" class="c-badge" width="160" height="180">
       {{- end }}
     {{- end }}
     <div class="u-w-full u-bg-{{ .Params.color }} {{ if $image_padding }}u-p-2{{ end }}">

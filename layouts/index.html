@@ -1,8 +1,13 @@
 {{ define "main" }}
-  <div class="o-wrapper u-py-4 md:u-py-6 u-flex u-items-center" data-controller="mobile-hover">
+  <div class="o-wrapper u-pt-3 u-pb-4 md:u-pb-6 md:u-pt-4 u-flex u-items-center" data-controller="mobile-hover">
     <div class="o-container o-container-query">
       <span class="sm:u-hidden" data-mobile-hover-target="mobileTest"></span>
       <span class="u-hidden sm:u-block lg:u-hidden" data-mobile-hover-target="tabletTest"></span>
+
+      <div class="u-mb-2 u-flex u-items-center u-content-end">
+        {{ partial "translations" . }}
+      </div>
+
       <div class="u-grid u-text-white">
 
         <!-- Wizytówka -->
@@ -14,19 +19,17 @@
               <img src="{{ $image.RelPermalink }}" alt="Przemysław Barski" width="200" height="200">
             </div>
             <div>
-              <p class="u-mb-0.5">Cześć, nazywam się</p>
-              <h1 class="u-mt-0 u-text-display u-text-bold u-text-lg u-mt-0.5">Przemysław Barski</h1>
-              <p>Jestem doświadczonym elektronikiem, programistą i web developerem</p>
+              {{ .Content }}
             </div>
             <div class="u-text-left u-text-xs u-mt-1">
               {{ $email := resources.Get "icons/envelope-solid.svg" }}
               {{ $phone := resources.Get "icons/phone-solid.svg" }}
               <a href="mailto:barski.przemyslaw@gmail.com" class="u-flex u-items-center u-text-white u-mb-0.75">
-                <img src="{{ $email.RelPermalink }}" alt="Email" width="14" height="14" class="u-mr-0.5">
+                <img src="{{ $email.RelPermalink }}" alt="{{ i18n "email" }}" width="14" height="14" class="u-mr-0.5">
                 <span>barski.przemyslaw@gmail.com</span>
               </a>
               <a href="tel:+48696-851-288" class="u-flex u-items-center u-text-white">
-                <img src="{{ $phone.RelPermalink }}" alt="Numer telefonu" width="14" height="14" class="u-mr-0.5">
+                <img src="{{ $phone.RelPermalink }}" alt="{{ i18n "phone" }}" width="14" height="14" class="u-mr-0.5">
                 <span>+48 696 851 288</span>
               </a>
             </div>
@@ -37,13 +40,14 @@
 
         <div class="md:u-grid-rowspan-3 lg:u-grid-rowspan-1 u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-3 u-flex-col xs:u-flex-row u-flex lg:u-block c-link-overlay c-hover-lift c-hover-highlight c-hover-reveal u-shadow-solid-md" data-mobile-hover-target="element">
 
-          <a href="elektronika/" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
+          {{ $electronics_page := .GetPage "/elektronika" }}
+          <a href="{{ $electronics_page.RelPermalink }}" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
             <div class="c-square">
               <div class="c-square__content u-text-center u-flex u-items-center u-content-center u-p-1.5">
                 <div>
-                  <h2 class="u-text-xl u-text-display u-text-shadow">Elektronika</h2>
+                  <h2 class="u-text-xl u-text-display u-text-shadow">{{ i18n "electronics" }}</h2>
                   <button class="c-button u-absolute v--white v--lg lg:u-hidden v--no-transform c-hover-reveal__content">
-                    <span class="c-button__content">Zobacz</span>
+                    <span class="c-button__content">{{ i18n "explore" }}</span>
                   </button>
                 </div>
               </div>
@@ -53,7 +57,7 @@
           <div class="c-square u-bg-red u-basis-6">
             <div class="c-square__content">
               {{ $image := .Resources.GetMatch "elektronika.jpg" }}
-              <img src="{{ $image.RelPermalink }}" alt="Obrazek przedstawiający analogowy przedwzmacniacz mikrofonowy" width="285" height="285" class="u-w-full">
+              <img src="{{ $image.RelPermalink }}" alt="{{ i18n "electronics_img" }}" width="285" height="285" class="u-w-full">
             </div>
             <div class="c-square__content c-hover-reveal__content">
               {{ $video_webm := .Resources.GetMatch "elektronika.webm" }}
@@ -72,13 +76,14 @@
 
         <div class="md:u-grid-rowspan-3 lg:u-grid-rowspan-1 u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-3 u-flex-col xs:u-flex-row u-flex lg:u-block c-link-overlay c-hover-lift c-hover-highlight c-hover-reveal u-shadow-solid-md" data-mobile-hover-target="element">
 
-          <a href="web-development/" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
+          {{ $webdev_page := .GetPage "/web-development" }}
+          <a href="{{ $webdev_page.RelPermalink }}" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
             <div class="c-square">
               <div class="c-square__content u-text-center u-flex u-items-center u-content-center u-p-1.5">
                 <div>
-                  <h2 class="u-text-xl u-text-display u-text-shadow">Web Development</h2>
+                  <h2 class="u-text-xl u-text-display u-text-shadow">{{ i18n "web_development" }}</h2>
                   <button class="c-button u-absolute v--white v--lg lg:u-hidden v--no-transform c-hover-reveal__content">
-                    <span class="c-button__content">Zobacz</span>
+                    <span class="c-button__content">{{ i18n "explore" }}</span>
                   </button>
                 </div>
               </div>
@@ -88,7 +93,7 @@
           <div class="u-basis-6 c-square u-bg-red u-order-1 sm:u-order-0">
             <span class="c-square__content">
               {{ $image := .Resources.GetMatch "web-development.jpg" }}
-              <img src="{{ $image.RelPermalink }}" alt="Obrazek przedstawiający analogowy przedwzmacniacz mikrofonowy" width="285" height="285" class="u-w-full">
+              <img src="{{ $image.RelPermalink }}" alt="{{ i18n "web_development_img" }}" width="285" height="285" class="u-w-full">
             </span>
             <div class="c-square__content u-text-center u-flex u-items-center u-content-center">
               <span class="u-text-bold" style="font-size: 60px; text-shadow: 8px 8px 8px #000000;"></></span>
@@ -110,13 +115,14 @@
 
         <div class="md:u-grid-rowspan-3 lg:u-grid-rowspan-1 md:u-grid-col-start-5 lg:u-grid-col-start-auto u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-3 u-flex-col xs:u-flex-row u-flex lg:u-block c-link-overlay c-hover-lift c-hover-highlight c-hover-reveal u-shadow-solid-md" data-mobile-hover-target="element">
 
-          <a href="/inne/" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
+          {{ $other_page := .GetPage "/inne" }}
+          <a href="{{ $other_page.RelPermalink }}" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
             <div class="c-square">
               <div class="c-square__content u-text-center u-flex u-items-center u-content-center u-p-1.5">
                 <div>
-                  <h2 class="u-text-xl u-text-display u-text-shadow">Inne</h2>
+                  <h2 class="u-text-xl u-text-display u-text-shadow">{{ i18n "other" }}</h2>
                   <button class="c-button u-absolute v--white v--lg lg:u-hidden v--no-transform c-hover-reveal__content">
-                    <span class="c-button__content">Zobacz</span>
+                    <span class="c-button__content">{{ i18n "explore" }}</span>
                   </button>
                 </div>
               </div>
@@ -126,7 +132,7 @@
           <div class="u-basis-6 c-square u-bg-red">
             <div class="c-square__content">
               {{ $image := .Resources.GetMatch "inne.jpg" }}
-              <img src="{{ $image.RelPermalink }}" alt="Obrazek przedstawiający analogowy przedwzmacniacz mikrofonowy" width="285" height="285" class="u-w-full">
+              <img src="{{ $image.RelPermalink }}" alt="{{ i18n "other_img" }}" width="285" height="285" class="u-w-full">
             </div>
             <div class="c-square__content c-hover-reveal__content">
               {{ $video_webm := .Resources.GetMatch "inne.webm" }}
