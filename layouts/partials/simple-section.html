@@ -78,7 +78,7 @@
   </div>
   {{- with .Params.model_3d }}
     <button class="c-button u-absolute v--white sm:u-hidden u-mt-1" data-action="3d-model-viewer#load" data-3d-model-viewer-target="loadButton">
-      <span class="c-button__content">Pokaż model 3D ({{ .size }})</span>
+      <span class="c-button__content">{{ i18n "3d_model" }} ({{ .size }})</span>
     </button>
   {{- end }}
 </section>

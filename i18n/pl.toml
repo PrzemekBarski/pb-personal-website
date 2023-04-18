@@ -24,3 +24,5 @@
   other = "Odznaka: napis \"Wybór Kolejarza\" i zdjęcie tegoż kolejarza"
 [back_to_desktop]
   other = "Przywróć wersję destop"
+[3d_model]
+  other = "Pokaż model 3D"
