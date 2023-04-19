@@ -26,7 +26,7 @@
   {{- end }}
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Permalink }}">
-  {{- $og_image := resources.Get "images/og-image.jpg" }}
+  {{- $og_image := resources.Get (printf "images/og-image-%s.jpg" .Language) }}
   {{ with $og_image }}
     <meta property="og:image" content="{{ .Permalink }}">
     <meta property="twitter:image" content="{{ .Permalink }}">
