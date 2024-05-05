@@ -20,4 +20,6 @@ cascade:
 
 I have been doing commercial electronic projects since 2012. I have succesfully delivered several dozens of them. I specialize in analog and digital devices for musicians and recording studios, but I have also designed railway industry equipment.
 
+Since June 2023 I also work for R&D department of Faurecia Pneumatic. My job is to design and prototype mechatronic circuits for car comfort systems.
+
 I have a well-equipped and ESD-protected laboratory to build and test high-quality prototypes.
