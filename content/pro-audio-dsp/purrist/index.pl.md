@@ -2,6 +2,7 @@
 Title: Stray Cat Purrist
 type: stacked
 inverted: true
+class: u-maxw-48 u-mx-auto
 featured_video:
   autoplay: true
   loop: true

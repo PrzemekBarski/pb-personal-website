@@ -9,7 +9,7 @@
     {{- $image_padding = .Params.featured_video.padding }}
   {{- end }}
 {{- end }}
-<section id="{{ .File.ContentBaseName }}" class="u-grid u-mb-3 u-items-center u-mb-4 sm:u-mb-6 md:u-mb-10 u-pt-2" {{- with .Params.model_3d }}data-controller="3d-model-viewer" data-model-url="{{ .url }}.obj" data-material-url="{{ .url }}.mtl"{{ end }}>
+<section id="{{ .File.ContentBaseName }}" class="u-grid u-mb-3 u-items-center u-mb-4 sm:u-mb-6 md:u-mb-10 u-pt-2 {{ with .Params.class }}{{ . }}{{ end }}" {{- with .Params.model_3d }}data-controller="3d-model-viewer" data-model-url="{{ .url }}.obj" data-material-url="{{ .url }}.mtl"{{ end }}>
   <h2 class="u-text-xl u-text-display u-mt-0 u-ml-1.5 u-mb-0 u-grid-colspan-12 {{ if ne .Params.type "stacked" }}md:u-hidden{{ end }}">{{ .Title }}</h2>
   <div class="u-relative u-ml-1.5 u-mb-1 md:u-mb-1.5 lg:u-mb-0 u-order-1 u-grid-colspan-12
     {{ if ne .Params.type "stacked" -}}
