@@ -15,7 +15,7 @@ featured_video:
 order: 1
 ---
 
-Purrist to zaawansowana, gitarowa bramka szumów zaprojektowana do walki ze wszystkimi zakłóceniami typowymi dla gitar elektrycznych. To co odróżnia ją od innych narzędzi tego typu jest to, że nie skraca naturalnego wybrzmienia instrumentu. Powstaje przy użyciu frameworku Juce i będzie dostępna jako wtyczka VST3, AU oraz iOS AUv3.
+Purrist to zaawansowana, gitarowa bramka szumów zaprojektowana do walki ze wszystkimi zakłóceniami typowymi dla gitar elektrycznych. To co odróżnia ją od innych narzędzi tego typu jest to, że nie skraca naturalnego wybrzmienia instrumentu. Powstaje przy użyciu frameworku JUCE i będzie dostępna jako wtyczka VST3, AU oraz iOS AUv3.
 
 ### Buzz
 

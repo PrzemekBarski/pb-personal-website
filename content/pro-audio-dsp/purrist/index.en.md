@@ -15,7 +15,7 @@ featured_video:
 order: 1
 ---
 
-Purrist is an advanced guitar noise gate. It is designed to prevent all of the artifacts typical to electric guitars. What distinguishes this plugin from others is that it preserves the natural sustain of your instrument. It is developed using Juce framework and it will be available as a VST3, AU, and iOS AUv3 plugin.
+Purrist is an advanced guitar noise gate. It is designed to prevent all of the artifacts typical to electric guitars. What distinguishes this plugin from others is that it preserves the natural sustain of your instrument. It is developed using JUCE framework and it will be available as a VST3, AU, and iOS AUv3 plugin.
 
 ### Buzz
 
