@@ -10,6 +10,10 @@
   other = "Web development"
 [web_development_img]
   other = "Zrzut ekranu przedstawiający kod PHP w edytorze tekstu"
+[pro_audio_dsp]
+  other = "Pro Audio DSP"
+[pro_audio_dsp_img]
+  other = "Zdjęcie przedstawiające laptop z widocznym kodem programu C++, w tle studio muzyczne"
 [other]
   other = "Inne"
 [other_img]

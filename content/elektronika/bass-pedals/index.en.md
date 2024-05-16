@@ -1,8 +1,8 @@
 ---
 Title: Stray Cat Bass Pedals
-inverted: true
+inverted: false
 featured_image:
-  src: bass-pedals-2.png
+  src: bass-pedals.png
   alt: Picture of Stray Cat Bass Pedals MIDI controller
   loading: lazy
   padding: false
@@ -12,7 +12,7 @@ color: red
 decor:
   variant: 4
   color: gray-2
-order: 1
+order: 2
 ---
 
 Bass Pedals is a programmable MIDI foot controller. It was inspired by such bassists as Mike Rutherford or John Paul Jones, who often grabbed an electric guitar on stage and supported themselves with an organ foot keyboard in order to play the bass line. Bass Pedals is a compact version of such a keyboard designed for musicians who do not need immediate access to the whole octave.

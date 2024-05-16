@@ -1,8 +1,8 @@
 ---
 Title: Stray Cat Bass Pedals
-inverted: true
+inverted: false
 featured_image:
-  src: bass-pedals-2.png
+  src: bass-pedals.png
   alt: Zdjęcie kontrolera MIDI Stray Cat Bass Pedals
   loading: lazy
   padding: false
@@ -12,7 +12,7 @@ color: red
 decor:
   variant: 4
   color: gray-2
-order: 1
+order: 2
 ---
 
 Bass Pedals to programowalny sterownik nożny MIDI. Powstał w inspiracji takimi basistami jak Mike Rutherford czy John Paul Jones, którzy na scenie często chwytali za gitarę elektryczną i wspomagali się organową klawiaturą nożną do odgrywania linii basu. Bass Pedals to kompaktowa wersja takiej klawiatury przeznaczona dla muzyków, którzy nie potrzebują natychmiastowego dostępu do pełnej oktawy.

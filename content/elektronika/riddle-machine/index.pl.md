@@ -1,5 +1,6 @@
 ---
 Title: Stray Cat Riddle Machine
+inverted: true
 featured_image:
   src: riddle-machine.png
   alt: Komputerowa wizualizacja efektu gitarowego Stray Cat Riddle Machine

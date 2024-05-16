@@ -9,17 +9,29 @@
     {{- $image_padding = .Params.featured_video.padding }}
   {{- end }}
 {{- end }}
-<section class="md:u-grid u-mb-3 u-items-center u-mb-6 sm:u-mb-8 md:u-mb-12" {{- with .Params.model_3d }}data-controller="3d-model-viewer" data-model-url="{{ .url }}.obj" data-material-url="{{ .url }}.mtl"{{ end }}>
-  <div class="u-relative u-ml-1.5 u-mb-1 md:u-mb-1.5 lg:u-mb-0 md:u-ml-0 u-grid-colspan-5 {{ with .Params.inverted }}md:u-order-1 md:u-ml-3{{ else }}md:u-mr-3{{ end }}">
+<section id="{{ .File.ContentBaseName }}" class="u-grid u-mb-3 u-items-center u-mb-4 sm:u-mb-6 md:u-mb-10 u-pt-2" {{- with .Params.model_3d }}data-controller="3d-model-viewer" data-model-url="{{ .url }}.obj" data-material-url="{{ .url }}.mtl"{{ end }}>
+  <h2 class="u-text-xl u-text-display u-mt-0 u-ml-1.5 u-mb-0 u-grid-colspan-12 {{ if ne .Params.type "stacked" }}md:u-hidden{{ end }}">{{ .Title }}</h2>
+  <div class="u-relative u-ml-1.5 u-mb-1 md:u-mb-1.5 lg:u-mb-0 u-order-1 u-grid-colspan-12
+    {{ if ne .Params.type "stacked" -}}
+      md:u-grid-colspan-5 md:u-ml-0
+      {{- if .Params.inverted }} md:u-order-1 md:u-ml-3{{ else }} md:u-mr-3{{ end -}}
+    {{- end }} {{ if not .Params.inverted }}md:u-order-0{{ end }}">
     {{- with .Params.decor }}
       {{- partial "decor/triangle" (dict "variant" .variant "color" .color) }}
     {{- end }}
     <div class="u-relative">
-      <h2 class="u-text-xl u-text-display u-mt-0">{{ .Title }}</h2>
+      {{ if ne .Params.type "stacked" }}
+        <h2 class="u-text-xl u-text-display u-mt-0 u-hidden md:u-block">{{ .Title }}</h2>
+      {{ end }}
+      {{- with .Params.model_3d }}
+        <button class="c-button u-absolute v--white sm:u-hidden v--no-transform u-mb-1" data-action="3d-model-viewer#load" data-3d-model-viewer-target="loadButton">
+          <span class="c-button__content">{{ i18n "3d_model" }} ({{ .size }})</span>
+        </button>
+      {{- end }}
       {{ .Content }}
     </div>
   </div>
-  <div class="u-text-center u-grid-colspan-7 c-3d-model-viewer u-shadow-solid-sm u-flex u-relative {{ if .Params.badge }}u-mt-4 md:u-mt-0{{ end }}">
+  <div class="u-text-center u-grid-colspan-12 u-mb-1 {{ if ne .Params.type "stacked" }}md:u-grid-colspan-7 md:u-mb-0{{ end }} c-3d-model-viewer u-shadow-solid-sm u-flex u-relative {{ if .Params.badge }}u-mt-4 md:u-mt-0{{ end }}{{ with .Params.featured_video.max_width}}u-maxw-{{ . }}{{ end }}">
     {{- if .Params.badge }}
       {{- $image := resources.Get (i18n "badge_src") }}
       {{- with $image }}
@@ -48,9 +60,15 @@
         {{- $video := $.Resources.GetMatch .src }}
         {{- $poster := $.Resources.GetMatch .poster | default false -}}
         <video
-          autoplay
-          muted
-          loop
+          {{ with .autoplay }}
+            autoplay
+            muted
+          {{ else }}
+            controls
+          {{ end }}
+          {{ with .loop }}
+            loop
+          {{ end }}
           playsinline
           {{ with .width }}width="{{ . }}"{{ end }}
           {{ with .height }}height="{{ . }}"{{ end }}
@@ -76,9 +94,5 @@
       {{- end }}
     </div>
   </div>
-  {{- with .Params.model_3d }}
-    <button class="c-button u-absolute v--white sm:u-hidden u-mt-1" data-action="3d-model-viewer#load" data-3d-model-viewer-target="loadButton">
-      <span class="c-button__content">{{ i18n "3d_model" }} ({{ .size }})</span>
-    </button>
-  {{- end }}
+  
 </section>

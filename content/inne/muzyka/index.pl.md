@@ -2,6 +2,8 @@
 Title: Muzyka
 inverted: true
 featured_video:
+  autoplay: true
+  loop: true
   src: muzyka.mp4
   poster: muzyka.png
   alt: "Wideo: Przemysław Barski gra na różnych instrumentach"

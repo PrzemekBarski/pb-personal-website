@@ -3,6 +3,7 @@
 {{- $card_size_classes := partial "functions/get-card-size-classes" .Params.card_size }}
 {{- $centered_classes := "u-text-center u-flex u-items-center u-content-center" }}
 {{- $icon_width := .Params.card_icon_width | default 32 }}
+{{- $icon_alt := .Params.card_icon_alt | default "" }}
 {{- $featured := .Params.card_featured | default false }}
 {{- $container_tag := cond $featured "div" "section"}}
 {{- $shadow_size := cond $featured "lg" "md" }}
@@ -17,11 +18,11 @@
       {{- else }}
         <h2 class="u-text-lg xs:u-text-xl u-mb-1 u-text-display u-mt-0 u-flex u-items-center u-content-between">
       {{- end }}
-          <span>{{ .Title }}</span>
+          <span {{ with .Params.card_icon }}class="u-mr-1"{{ end }}>{{ .Title }}</span>
           {{ with .Params.card_icon }}
             {{- $card_icon := $.Resources.GetMatch . }}
             {{- with $card_icon }}
-              <img src="{{ .RelPermalink }}" alt="HTML5 logo" width="{{ $icon_width }}" height="32">
+              <img src="{{ .RelPermalink }}" alt="{{ $icon_alt }}" width="{{ $icon_width }}" height="32">
             {{- end }}
           {{ end }}
       {{- if $featured }}
