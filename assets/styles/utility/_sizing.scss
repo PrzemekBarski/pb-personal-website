@@ -1,7 +1,52 @@
-.u-w-auto {
-  width: auto;
-}
+$sizes: (
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "8": 8,
+  "10": 10,
+  "12": 12,
+  "16": 16,
+  "20": 20,
+  "24": 24,
+  "28": 28,
+  "32": 32,
+  "36": 36,
+  "40": 40,
+  "48": 48,
+  "56": 56,
+  "64": 64
+);
 
-.u-w-full {
-  width: 100%;
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  $prefix: if($breakpoint-value != 0, "#{$breakpoint-name}\\:", "");
+
+  @include container-query($breakpoint-name) {
+    .#{$prefix}u-w-auto {
+      width: auto;
+    }
+
+    .#{$prefix}u-w-full {
+      width: 100%;
+    }
+
+    .#{$prefix}u-maxw-full {
+      max-width: 100%;
+    }
+
+    .#{$prefix}u-maxw-none {
+      max-width: none;
+    }
+
+    @each $size-name, $size in $sizes {
+      .#{$prefix}u-w-#{$size-name} {
+        width: #{$size}rem;
+      }
+
+      .#{$prefix}u-maxw-#{$size-name} {
+        max-width: #{$size}rem;
+      }
+    }
+
+
+  }
 }

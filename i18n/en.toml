@@ -3,13 +3,17 @@
 [phone]
   other = 'Phone'
 [electronics]
-  other = "Electronic design"
+  other = "Electronics"
 [electronics_img]
   other = "Picture of an analog microphone preamplifier"
 [web_development]
   other = "Web Development"
 [web_development_img]
   other = "Screenshot of text editor with PHP code"
+[pro_audio_dsp]
+  other = "Pro Audio DSP"
+[pro_audio_dsp_img]
+  other = "Picture of a laptop with C++ code on screen, music studio visible on the background"
 [other]
   other = "Other"
 [other_img]

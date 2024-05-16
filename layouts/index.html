@@ -72,16 +72,16 @@
         </div>
 
 
-        <!-- Web Development -->
+        <!-- Pro Audio DSP -->
 
         <div class="md:u-grid-rowspan-3 lg:u-grid-rowspan-1 u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-3 u-flex-col xs:u-flex-row u-flex lg:u-block c-link-overlay c-hover-lift c-hover-highlight c-hover-reveal u-shadow-solid-md" data-mobile-hover-target="element">
 
-          {{ $webdev_page := .GetPage "/web-development" }}
-          <a href="{{ $webdev_page.RelPermalink }}" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
+          {{ $proaudio_page := .GetPage "/pro-audio-dsp" }}
+          <a href="{{ $proaudio_page.RelPermalink }}" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
             <div class="c-square">
               <div class="c-square__content u-text-center u-flex u-items-center u-content-center u-p-1.5">
                 <div>
-                  <h2 class="u-text-xl u-text-display u-text-shadow">{{ i18n "web_development" }}</h2>
+                  <h2 class="u-text-xl u-text-display u-text-shadow">{{ i18n "pro_audio_dsp" }}</h2>
                   <button class="c-button u-absolute v--white v--lg lg:u-hidden v--no-transform c-hover-reveal__content">
                     <span class="c-button__content">{{ i18n "explore" }}</span>
                   </button>
@@ -92,12 +92,9 @@
 
           <div class="u-basis-6 c-square u-bg-red u-order-1 sm:u-order-0">
             <span class="c-square__content">
-              {{ $image := .Resources.GetMatch "web-development.jpg" }}
-              <img src="{{ $image.RelPermalink }}" alt="{{ i18n "web_development_img" }}" width="285" height="285" class="u-w-full">
+              {{ $image := .Resources.GetMatch "pro-audio-dsp.jpg" }}
+              <img src="{{ $image.RelPermalink }}" alt="{{ i18n "pro_audio_dsp_img" }}" width="285" height="285" class="u-w-full">
             </span>
-            <div class="c-square__content u-text-center u-flex u-items-center u-content-center">
-              <span class="u-text-bold" style="font-size: 60px; text-shadow: 8px 8px 8px #000000;"></></span>
-            </div>
             <div class="c-square__content c-hover-reveal__content">
               {{ $video_webm := .Resources.GetMatch "web-dev.webm" }}
               {{ $video_mp4 := .Resources.GetMatch "web-dev.mp4" }}

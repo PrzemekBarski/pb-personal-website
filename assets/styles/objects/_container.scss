@@ -6,8 +6,17 @@
   container-type: inline-size;
 }
 
+.o-container-xl {
+  width: calc(1480px + #{2 * $container-padding-mobile});
+  max-width: 100%;
+  padding: 0 #{$container-padding-mobile};
+  margin: 0 auto;
+  container-type: inline-size;
+}
+
 @media (min-width: #{map-get($breakpoints, "xs")}) {
-  .o-container {
+  .o-container,
+  .o-container-xl {
     padding: 0 #{$container-padding};
   }
 }

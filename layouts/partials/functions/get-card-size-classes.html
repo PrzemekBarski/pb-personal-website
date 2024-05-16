@@ -4,6 +4,8 @@
   {{ $size_classes = "u-grid-colspan-12 sm:u-grid-colspan-6 md:u-grid-colspan-4 lg:u-grid-colspan-4" }}
 {{ else if eq . "medium" }}
   {{ $size_classes = "u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-6" }}
+{{ else if eq . "medium-wide" }}
+  {{ $size_classes = "u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-8" }}
 {{ else if eq . "wide" }}
   {{ $size_classes = "u-grid-colspan-12 lg:u-grid-colspan-9" }}
 {{ else if eq . "medium-large" }}
