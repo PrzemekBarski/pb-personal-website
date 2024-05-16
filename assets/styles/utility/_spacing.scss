@@ -26,9 +26,25 @@ $signs: ("": "", "n": "-");
 
   @include container-query($breakpoint-name) {
 
-    @each $sign-name, $sign in $signs {
-      @each $kind-slug, $kind-name in $spacing-kinds {
-        @each $type in $types {
+    @each $type in $types {
+
+      .#{$prefix}u-m#{$type}-auto {
+        @if $type == "l" or $type == "x" or $type == "" {
+          margin-left: auto;
+        }
+        @if $type == "r" or $type == "x" or $type == "" {
+          margin-right: auto;
+        }
+        @if $type == "t" or $type == "y" or $type == "" {
+          margin-top: auto;
+        }
+        @if $type == "b" or $type == "y" or $type == "" {
+          margin-bottom: auto;
+        }
+      }
+
+      @each $sign-name, $sign in $signs {
+        @each $kind-slug, $kind-name in $spacing-kinds {
           @each $size-name, $size in $sizes {
             .#{$prefix}u-#{$kind-slug}#{$type}#{$sign-name}-#{$size-name} {
               @if $type == "l" or $type == "x" or $type == "" {
