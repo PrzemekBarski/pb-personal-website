@@ -10,7 +10,7 @@
   {{- end }}
 {{- end }}
 <section id="{{ .File.ContentBaseName }}" class="u-grid u-mb-3 u-items-center u-mb-4 sm:u-mb-6 md:u-mb-10 u-pt-2 {{ with .Params.class }}{{ . }}{{ end }}" {{- with .Params.model_3d }}data-controller="3d-model-viewer" data-model-url="{{ .url }}.obj" data-material-url="{{ .url }}.mtl"{{ end }}>
-  <h2 class="u-text-xl u-text-display u-mt-0 u-ml-1.5 u-mb-0 u-grid-colspan-12 {{ if ne .Params.type "stacked" }}md:u-hidden{{ end }}">{{ .Title }}</h2>
+  <h2 class="u-text-xl u-text-display u-mt-0 u-ml-1.5 u-mb-0 u-grid-colspan-12 u-relative {{ if ne .Params.type "stacked" }}md:u-hidden{{ end }}" style="z-index: 1;">{{ .Title }}</h2>
   <div class="u-relative u-ml-1.5 u-mb-1 md:u-mb-1.5 lg:u-mb-0 u-order-1 u-grid-colspan-12
     {{ if ne .Params.type "stacked" -}}
       md:u-grid-colspan-5 md:u-ml-0
@@ -19,7 +19,7 @@
     {{- with .Params.decor }}
       {{- partial "decor/triangle" (dict "variant" .variant "color" .color) }}
     {{- end }}
-    <div class="u-relative">
+    <div class="u-relative" style="z-index: 1;">
       {{ if ne .Params.type "stacked" }}
         <h2 class="u-text-xl u-text-display u-mt-0 u-hidden md:u-block">{{ .Title }}</h2>
       {{ end }}
@@ -31,7 +31,7 @@
       {{ .Content }}
     </div>
   </div>
-  <div class="u-text-center u-grid-colspan-12 u-mb-1 {{ if ne .Params.type "stacked" }}md:u-grid-colspan-7 md:u-mb-0{{ end }} c-3d-model-viewer u-shadow-solid-sm u-flex u-relative {{ if .Params.badge }}u-mt-4 md:u-mt-0{{ end }}{{ with .Params.featured_video.max_width}}u-maxw-{{ . }}{{ end }}">
+  <div class="u-text-center u-grid-colspan-12 u-mb-1 {{ if ne .Params.type "stacked" }}md:u-grid-colspan-7 md:u-mb-0{{ end }} c-3d-model-viewer u-shadow-solid-sm u-flex u-relative {{ if .Params.badge }}u-mt-4 md:u-mt-0{{ end }}{{ with .Params.featured_video.max_width}}u-maxw-{{ . }}{{ end }}" style="z-index: 1;">
     {{- if .Params.badge }}
       {{- $image := resources.Get (i18n "badge_src") }}
       {{- with $image }}

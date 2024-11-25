@@ -10,6 +10,10 @@ decor:
   variant: 4
   color: gray-2
 order: 0
+_build:
+  list: never
+  publishResources: false
+  render: never
 ---
 
 W wolnych chwilach rozwijam swojego [bloga](https://proproba.pl) poświęconego prowadzeniu zespołu muzycznego, technice audio i innym zagadnieniom związanym z profesjonalnym muzykowaniem.

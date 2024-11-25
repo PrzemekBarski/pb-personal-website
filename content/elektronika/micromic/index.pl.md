@@ -10,7 +10,7 @@ featured_video:
   height: 365
 color: red
 decor:
-  variant: 4
+  variant: 3
   color: gray-2
 order: 1
 ---

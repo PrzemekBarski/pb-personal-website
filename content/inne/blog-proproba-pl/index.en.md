@@ -10,6 +10,10 @@ decor:
   variant: 4
   color: gray-2
 order: 0
+_build:
+  list: never
+  publishResources: false
+  render: never
 ---
 
 In my free time, I'm writing for my [blog](https://proproba.pl) about leading a band, audio technology, and other issues related to professional music-making.

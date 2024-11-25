@@ -14,3 +14,12 @@ order: 1
 ---
 
 Moją ogromną pasją jest muzyka. Komponuję, śpiewam i gram na wielu różnych instrumentach. Mam na koncie dziesiątki koncertów i dwa albumy studyjne.
+
+<ul>
+  <li>
+    <a href="https://www.youtube.com/@bleedingmoses/videos" target="_blank">Bleeding Moses</a>
+  </li>
+  <li>
+    <a href="https://www.youtube.com/@przykladowa_muzyka/videos" target="_blank">Przykładowa Muzyka</a>
+  </li>
+</ul>
