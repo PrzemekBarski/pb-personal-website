@@ -12,3 +12,6 @@ disableKinds = ['taxonomy', 'term']
 
 [params]
   title_prefix = 'Przemysław Barski - '
+
+[markup.goldmark.renderer]
+  unsafe= true
