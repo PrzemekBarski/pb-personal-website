@@ -13,7 +13,7 @@ featured_video:
 order: 1
 ---
 
-My greatest passion is music. I compose, sing, and play several instruments. I’ve played tens of live performances and recorded two studio albums.
+My greatest passion is music. I compose, sing, and play several instruments. I’ve played dozens of live performances and recorded two studio albums.
 
 You can listen to my bands here:
 
