@@ -16,16 +16,22 @@ featured_video:
 order: 1
 ---
 
-Purrist is an advanced guitar noise gate and hum-canceller. It is designed to prevent all of the artifacts typical to electric guitars. What distinguishes it from the others is its ability to preserve the natural sustain of your instrument. It is developed using JUCE framework and it will be available as a VST3, AU, and iOS AUv3 plugin.
+Purrist is a state-of-the-art noise suppressor designed primarily for use with electric guitars. Its ability to preserve your guitar's sustain distinguishes it from other plugins and hardware gates. The three sections of the plugin target AC hum, white noise, and other interference. Purrist is currently available for iPad and Apple Silicon Macs.
+
+<div class="u-mb-3 u-mt-1">
+  <a href="https://straycataudio.com/purrist/" target="_blank" class="c-button v--no-transform">
+    <span class="c-button__content">Learn more</span>
+  </a>
+</div>
 
 ### Buzz
 
-This is where you can suppress the AC buzz (also known as hum) induced by electrical installation. It comes especially handy when your guitar is equipped with single-coil pickups. Advanced filters can cancel the noise without reducing the sustain, even when your wildest distortion is on.
+Effectively filters out AC interference, eliminating buzzing, espacially from single-coil pickups.
 
 ### Fizz
 
-The "Fizz" section will handle any high-frequency interference, such as white noise. It is basically a dynamic shelving filter that attenuates high frequencies when the decaying string sound loses its treble content anyway.
+Employs a dynamic shelving filter to cut out high-frequency noise during string decay.
 
 ### Noise
 
-The last stage is a classic expander-type noise gate. Instead of shutting the sound off completely when the level is below the threshold, the volume is attenuated gradually. The lower the volume, the more attenuation will be applied. The result is a much more natural transition.
+Utilizes an expander-type noise gate that smoothly reduces any kind of noise.
