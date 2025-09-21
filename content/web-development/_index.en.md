@@ -1,6 +1,7 @@
 ---
 Title: Web Development
 description: Nine years of experience. HTML 5, JS ES12, CSS 3, PHP 7, Wordpress, Jamstack
+image_alt: Screenshot of text editor with PHP code
 container_query: true
 card_size: large
 card_color: black
@@ -14,6 +15,7 @@ cascade:
   _build:
     list: local
     render: never
+order: 2
 ---
 
 I have been coding websites for nine years. My first job was at **Chop-Chop.org** company, where I created mainly WordPress templates and [plugins](https://profiles.wordpress.org/chopchoporg/#content-plugins). With the help of excellent developers I met there, I took my first steps in making of the Internet and learned the object-oriented programming in PHP.

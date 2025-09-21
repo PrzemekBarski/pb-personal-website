@@ -1,6 +1,6 @@
 {{ define "main" }}
   <div class="o-wrapper u-pt-3 u-pb-4 md:u-pb-6 md:u-pt-4 u-flex u-items-center" data-controller="mobile-hover">
-    <div class="o-container o-container-query">
+    <div class="o-container-xl o-container-query md:u-maxw-64 xl:u-maxw-none">
       <span class="sm:u-hidden" data-mobile-hover-target="mobileTest"></span>
       <span class="u-hidden sm:u-block lg:u-hidden" data-mobile-hover-target="tabletTest"></span>
 
@@ -8,12 +8,12 @@
         {{ partial "translations" . }}
       </div>
 
-      <div class="u-grid u-text-white">
+      <div class="u-grid v--10-col u-text-white">
 
         <!-- Wizytówka -->
 
-        <div class="md:u-grid-rowspan-5 lg:u-grid-rowspan-1 u-grid-colspan-12 md:u-grid-colspan-4 lg:u-grid-colspan-3 u-text-center u-shadow-solid-lg u-text-sm u-flex">
-          <div class="u-bg-green u-py-2 u-px-1.5 u-basis-12 u-flex u-flex-col u-content-between u-items-center" style="max-height: 600px;">
+        <div class="md:u-grid-rowspan-2 xl:u-grid-rowspan-1 u-grid-colspan-12 md:u-grid-colspan-4 xl:u-grid-colspan-2 u-text-center u-shadow-solid-lg u-text-sm u-flex">
+          <div class="u-bg-green u-py-2 u-px-1.5 u-basis-12 u-flex u-flex-col u-content-between u-items-center">
             <div>
               {{ $image := resources.Get "images/przemyslaw-barski.png" }}
               <img src="{{ $image.RelPermalink }}" alt="Przemysław Barski" width="200" height="200">
@@ -36,112 +36,9 @@
           </div>
         </div>
 
-        <!-- Elektronika -->
-
-        <div class="md:u-grid-rowspan-3 lg:u-grid-rowspan-1 u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-3 u-flex-col xs:u-flex-row u-flex lg:u-block c-link-overlay c-hover-lift c-hover-highlight c-hover-reveal u-shadow-solid-md" data-mobile-hover-target="element">
-
-          {{ $electronics_page := .GetPage "/elektronika" }}
-          <a href="{{ $electronics_page.RelPermalink }}" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
-            <div class="c-square">
-              <div class="c-square__content u-text-center u-flex u-items-center u-content-center u-p-1.5">
-                <div>
-                  <h2 class="u-text-xl u-text-display u-text-shadow">{{ i18n "electronics" }}</h2>
-                  <button class="c-button u-absolute v--white v--lg lg:u-hidden v--no-transform c-hover-reveal__content">
-                    <span class="c-button__content">{{ i18n "explore" }}</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <div class="c-square u-bg-red u-basis-6">
-            <div class="c-square__content">
-              {{ $image := .Resources.GetMatch "elektronika.jpg" }}
-              <img src="{{ $image.RelPermalink }}" alt="{{ i18n "electronics_img" }}" width="285" height="285" class="u-w-full">
-            </div>
-            <div class="c-square__content c-hover-reveal__content">
-              {{ $video_webm := .Resources.GetMatch "elektronika.webm" }}
-              {{ $video_mp4 := .Resources.GetMatch "elektronika.mp4" }}
-              <video poster="{{ $image.RelPermalink }}" autoplay muted loop playsinline width="285" height="285" class="u-w-full">
-                <source src="{{ $video_webm.RelPermalink }}" type="video/webm">
-                <source src="{{ $video_mp4.RelPermalink }}" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-        </div>
-
-
-        <!-- Pro Audio DSP -->
-
-        <div class="md:u-grid-rowspan-3 lg:u-grid-rowspan-1 u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-3 u-flex-col xs:u-flex-row u-flex lg:u-block c-link-overlay c-hover-lift c-hover-highlight c-hover-reveal u-shadow-solid-md" data-mobile-hover-target="element">
-
-          {{ $proaudio_page := .GetPage "/pro-audio-dsp" }}
-          <a href="{{ $proaudio_page.RelPermalink }}" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
-            <div class="c-square">
-              <div class="c-square__content u-text-center u-flex u-items-center u-content-center u-p-1.5">
-                <div>
-                  <h2 class="u-text-xl u-text-display u-text-shadow">{{ i18n "pro_audio_dsp" }}</h2>
-                  <button class="c-button u-absolute v--white v--lg lg:u-hidden v--no-transform c-hover-reveal__content">
-                    <span class="c-button__content">{{ i18n "explore" }}</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <div class="u-basis-6 c-square u-bg-red u-order-1 sm:u-order-0">
-            <span class="c-square__content">
-              {{ $image := .Resources.GetMatch "pro-audio-dsp.jpg" }}
-              <img src="{{ $image.RelPermalink }}" alt="{{ i18n "pro_audio_dsp_img" }}" width="285" height="285" class="u-w-full">
-            </span>
-            <div class="c-square__content c-hover-reveal__content">
-              {{ $video_webm := .Resources.GetMatch "web-dev.webm" }}
-              {{ $video_mp4 := .Resources.GetMatch "web-dev.mp4" }}
-              <video poster="{{ $image.RelPermalink }}" autoplay muted loop playsinline width="285" height="285" class="u-w-full">
-                <source src="{{ $video_webm.RelPermalink }}" type="video/webm">
-                <source src="{{ $video_mp4.RelPermalink }}" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-        </div>
-
-
-        <!-- Inna aktywność -->
-
-        <div class="md:u-grid-rowspan-3 lg:u-grid-rowspan-1 md:u-grid-col-start-5 lg:u-grid-col-start-auto u-grid-colspan-12 md:u-grid-colspan-8 lg:u-grid-colspan-3 u-flex-col xs:u-flex-row u-flex lg:u-block c-link-overlay c-hover-lift c-hover-highlight c-hover-reveal u-shadow-solid-md" data-mobile-hover-target="element">
-
-          {{ $other_page := .GetPage "/inne" }}
-          <a href="{{ $other_page.RelPermalink }}" class="u-basis-6 u-bg-black u-block u-link-reset c-link-overlay__a">
-            <div class="c-square">
-              <div class="c-square__content u-text-center u-flex u-items-center u-content-center u-p-1.5">
-                <div>
-                  <h2 class="u-text-xl u-text-display u-text-shadow">{{ i18n "other" }}</h2>
-                  <button class="c-button u-absolute v--white v--lg lg:u-hidden v--no-transform c-hover-reveal__content">
-                    <span class="c-button__content">{{ i18n "explore" }}</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <div class="u-basis-6 c-square u-bg-red">
-            <div class="c-square__content">
-              {{ $image := .Resources.GetMatch "inne.jpg" }}
-              <img src="{{ $image.RelPermalink }}" alt="{{ i18n "other_img" }}" width="285" height="285" class="u-w-full">
-            </div>
-            <div class="c-square__content c-hover-reveal__content">
-              {{ $video_webm := .Resources.GetMatch "inne.webm" }}
-              {{ $video_mp4 := .Resources.GetMatch "inne.mp4" }}
-              <video poster="{{ $image.RelPermalink }}" autoplay muted loop playsinline width="285" height="285" class="u-w-full">
-                <source src="{{ $video_webm.RelPermalink }}" type="video/webm">
-                <source src="{{ $video_mp4.RelPermalink }}" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-        </div>
+        {{- range sort .Pages ".Params.order" }}
+          {{ partial "link-card" . }}
+        {{- end -}}
 
       </div>
     </div>

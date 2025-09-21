@@ -1,6 +1,7 @@
 ---
 Title: Web Development
 description: Dziewięć lat doświadczenia. HTML 5, JS ES12, CSS 3, PHP 7, Wordpress, Jamstack
+image_alt: Zrzut ekranu przedstawiający kod PHP w edytorze tekstu
 container_query: true
 card_size: large
 card_color: black
@@ -14,6 +15,7 @@ cascade:
   _build:
     list: local
     render: never
+order: 2
 ---
 
 Kodowaniem stron zajmuję się od dziewięciu lat. Przez pięć lat pracowałem w firmie **Chop-Chop.org**, gdzie tworzyłem przede wszystkim szablony i [pluginy](https://profiles.wordpress.org/chopchoporg/#content-plugins) Wordpress. Z pomocą wspaniałych devów których tam poznałem postawiłem swoje pierwsze kroki w tworzeniu internetu i nauczyłem się programowania obiektowego w PHP.

@@ -7,6 +7,10 @@
 			display: grid;
 			grid-template-columns: repeat(12, 1fr);
 			gap: 1rem;
+
+			&.v--10-col {
+				grid-template-columns: repeat(10, 1fr);
+			}
 		}
 
 		.#{$prefix}u-grid-rows-eq {

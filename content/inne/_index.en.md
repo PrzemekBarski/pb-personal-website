@@ -1,9 +1,10 @@
 ---
 Title: Other
 description: Additional information about my skills and activites
+image_alt: Picture of Przemysław Barski playing bass guitar with a band
 url: other
 lightbox: true
-card_size: medium-wide
+card_size: full
 card_color: black
 card_featured: true
 _build:
@@ -13,4 +14,5 @@ cascade:
   _build:
     list: local
     render: never
+order: 3
 ---

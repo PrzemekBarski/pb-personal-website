@@ -1,8 +1,9 @@
 ---
 Title: Inne
 description: Dodatkowe informacje o mnie i mojej aktywności.
+image_alt: Zdjęcie Przemysława Barskiego grającego na gitarze basowej wraz z zespołem
 lightbox: true
-card_size: medium-wide
+card_size: full
 card_color: black
 card_featured: true
 _build:
@@ -12,4 +13,5 @@ cascade:
   _build:
     list: local
     render: never
+order: 3
 ---
