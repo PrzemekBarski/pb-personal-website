@@ -20,7 +20,7 @@ img, video {
 }
 
 a {
-  color: var(--color-white);
+  color: var(--color-black);
 }
 
 button {
@@ -55,4 +55,19 @@ ul, ol {
 
 li {
   margin-bottom: 0.5rem;
+}
+
+.t-hero {
+  overflow: hidden;
+  position: relative;
+
+  @include container-query(md) {
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(165deg, rgba(0,0,0,0), rgba(0,0,0,0) 30%, rgba(0,0,0,0.85) 90%);
+    }
+  }
 }

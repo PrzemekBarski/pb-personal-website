@@ -14,6 +14,10 @@
   container-type: inline-size;
 }
 
+.o-container-query {
+  container-type: inline-size;
+}
+
 @media (min-width: #{map-get($breakpoints, "xs")}) {
   .o-container,
   .o-container-xl {

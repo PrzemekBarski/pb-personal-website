@@ -1,4 +1,3 @@
-import "container-query-polyfill";
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
@@ -26,7 +25,7 @@ export default class extends Controller {
 
   onStylesheetLoad() {
     setTimeout(() => {
-      this.stylesheetTarget.parentNode.removeChild(this.stylesheetTarget);
+      // this.stylesheetTarget.parentNode.removeChild(this.stylesheetTarget);
     }, 100);
   }
 

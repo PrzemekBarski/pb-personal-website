@@ -1,0 +1,99 @@
+@function pct($v) {
+  @return if(unitless($v), ($v * 100) + "%", $v);
+}
+
+@function oklch-str($L, $C, $h) {
+  @return unquote("oklch(" + pct($L) + " " + ($C) + " " + ($h) + ")");
+}
+
+@function oklch-from-params($palette-map, $index) {
+  $L-list: map-get($palette-map, L_steps);
+  $C-list: map-get($palette-map, C_mults);
+  $H-list: map-get($palette-map, H_shifts);
+  $L: nth($L-list, $index);
+  $Cmult: nth($C-list, $index);
+  $Hshift: nth($H-list, $index);
+  $h-root: map-get($palette-map, h);
+  $c-root: map-get($palette-map, c);
+  $C: $c-root * $Cmult;
+  $h: $h-root + $Hshift;
+  @return oklch-str($L, $C, $h);
+}
+
+// Convenience: produce CSS color for palette name and step index (0..12)
+@function palette-color($name, $index) {
+  $pal-map: map-get($PALETTES, $name);
+  @if $pal-map == null { @error "Unknown palette `#{$name}`"; }
+  @return oklch-from-params($pal-map, $index);
+}
+
+// Step labels for mapping (index 1 => stop 0, index 13 => stop 950)
+$PALETTE-STOPS: 0,25,50,100,200,300,400,500,600,700,800,900,950;
+
+// ---------- PALETTE PARAM MAPS (one map per color) ----------
+$PALETTES: (
+  "red": (
+    h: 24.25,
+    c: 0.1828,
+    L_steps: (0.99,0.96,0.92,0.84,0.76,0.68,0.60,0.52,0.44,0.36,0.30,0.22,0.16),
+    C_mults: (0.08,0.16,0.28,0.46,0.66,0.86,0.98,1.00,0.95,0.78,0.60,0.45,0.30),
+    H_shifts: (-6,-4,-2,-1,0,0,0,0,1,2,3,4,5)
+  ),
+  "orange": (
+    h: 71.93,
+    c: 0.2071,
+    L_steps: (0.99,0.96,0.93,0.90,0.82,0.74,0.64,0.54,0.44,0.36,0.30,0.22,0.16),
+    C_mults: (0.08,0.16,0.28,0.46,0.66,0.86,0.98,1.00,0.95,0.78,0.60,0.45,0.30),
+    H_shifts: (-6,-4,-2,-1,0,0,0,0,1,2,3,4,5)
+  ),
+  "yellow": (
+    h: 86.60,
+    c: 0.2276,
+    L_steps: (0.99,0.97,0.95,0.93,0.90,0.86,0.81,0.74,0.66,0.56,0.44,0.34,0.28),
+    C_mults: (0.08,0.16,0.28,0.46,0.70,0.90,1.00,1.00,0.80,0.55,0.35,0.20,0.10),
+    H_shifts: (-6,-3,-1,0, 0,0,0,0, +4, +8, +12, +16, +20)
+  ),
+  "green": (
+    h: 145.90,
+    c: 0.1958,
+    L_steps: (0.99,0.96,0.92,0.84,0.76,0.68,0.60,0.52,0.44,0.36,0.30,0.22,0.16),
+    C_mults: (0.08,0.16,0.28,0.46,0.66,0.86,0.98,1.00,0.95,0.78,0.60,0.45,0.30),
+    H_shifts: (-6,-4,-2,-1,0,0,0,0,1,2,3,4,5)
+  ),
+  "blue": (
+    h: 210.66,
+    c: 0.1852,
+    L_steps: (0.99,0.96,0.92,0.84,0.76,0.68,0.60,0.52,0.44,0.36,0.30,0.22,0.16),
+    C_mults: (0.08,0.16,0.28,0.46,0.66,0.86,0.98,1.00,0.95,0.78,0.60,0.45,0.30),
+    H_shifts: (-6,-4,-2,-1,0,0,0,0,1,2,3,4,5)
+  ),
+  "purple": (
+    h: 259.01,
+    c: 0.3095,
+    L_steps: (0.99,0.96,0.92,0.84,0.76,0.68,0.60,0.52,0.44,0.36,0.30,0.22,0.16),
+    C_mults: (0.08,0.16,0.28,0.46,0.66,0.86,0.98,1.00,0.95,0.78,0.60,0.45,0.30),
+    H_shifts: (-6,-4,-2,-1,0,0,0,0,1,2,3,4,5)
+  ),
+  "gray": (
+    h: 26.12,
+    c: 0.0306,
+    L_steps: (0.99,0.96,0.92,0.84,0.76,0.68,0.60,0.52,0.44,0.36,0.30,0.22,0.16),
+    C_mults: (0.08,0.16,0.28,0.46,0.66,0.86,0.98,1.00,0.95,0.78,0.60,0.45,0.30),
+    H_shifts: (-6,-4,-2,-1,0,0,0,0,1,2,3,4,5)
+  )
+);
+
+$generated-colors: ();
+
+:root {
+
+  @each $color-name, $color-settings in $PALETTES {
+    @for $step-index from 1 through length($PALETTE-STOPS) {
+      $step: nth($PALETTE-STOPS, $step-index);
+      --color-#{$color-name}-#{$step}: #{palette-color($color-name, $step-index)};
+      $new-color: (#{$color-name + "-" + $step}: var(--color-#{$color-name}-#{$step}));
+      $generated-colors: map-merge($generated-colors, $new-color) !global;
+    }
+  }
+
+}

@@ -20,7 +20,8 @@
     "@hotwired/stimulus": "^3.2.1",
     "basiclightbox": "^5.0.4",
     "container-query-polyfill": "^1.0.2",
-    "three": "^0.151.2"
+    "three": "^0.151.2",
+    "colorizr": "^3.0.8"
   },
   "devDependencies": {
     "eslint": "^8.37.0",

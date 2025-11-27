@@ -1,34 +1,39 @@
 {{ $color := .Params.card_color | default "black" }}
+{{- $white_text := cond (eq $color "black") true false }}
 {{- $order_classes := partial "functions/get-responsive-classes" (dict "param" .Params.card_order "param_name" "order") }}
 {{- $card_size_classes := partial "functions/get-card-size-classes" .Params.card_size }}
 {{- $centered_classes := "u-text-center u-flex u-items-center u-content-center" }}
 {{- $icon_width := .Params.card_icon_width | default 32 }}
+{{- $square := .Params.card_square | default false }}
+{{- $show_title := .Params.card_show_title | default true }}
 {{- $icon_alt := .Params.card_icon_alt | default "" }}
 {{- $featured := .Params.card_featured | default false }}
 {{- $container_tag := cond $featured "div" "section"}}
-{{- $shadow_size := cond $featured "lg" "md" }}
-{{- $container_classes := printf "%s %s u-shadow-solid-%s v--order-z-index u-text-sm u-flex" $order_classes $card_size_classes $shadow_size -}}
+{{- $shadow_size := cond $featured "lg" "sm" }}
+{{- $container_classes := printf "%s %s %s u-shadow-%s v--order-z-index u-text-sm u-flex" $order_classes $card_size_classes (cond $square "c-square" "") $shadow_size -}}
 
 {{- printf `<%s class="%s">` $container_tag $container_classes | safeHTML -}}
 
-  <div class="u-bg-{{ $color }} u-py-2 u-px-1.5 u-w-full {{ with .Params.card_centered }}{{ $centered_classes }}{{ end }} {{ if $featured }}u-text-sm xs:u-text-md{{ end }}">
+  <div class="u-bg-{{ $color }}-200 {{ cond $white_text "u-text-white" "" }} u-py-2 u-px-1.5 u-w-full {{ with .Params.card_centered }}{{ $centered_classes }}{{ end }} {{ if $featured }}u-text-sm xs:u-text-md{{ end }} {{ if $square }}c-square__content{{ end }}">
     {{- with .Params.card_centered }}<div>{{ end }}
-      {{- if $featured }}
-        <h1 class="u-text-xl xs:u-text-2xl u-text-display u-mt-0 {{ if eq .Content "" }}u-mb-0{{ else }}u-mb-1.5{{ end }} u-flex u-flex-wrap u-items-center u-content-between">
-      {{- else }}
-        <h2 class="u-text-lg xs:u-text-xl u-mb-1 u-text-display u-mt-0 u-flex u-items-center u-content-between">
-      {{- end }}
-          <span {{ with .Params.card_icon }}class="u-mr-1"{{ end }}>{{ .Title }}</span>
-          {{ with .Params.card_icon }}
-            {{- $card_icon := $.Resources.GetMatch . }}
-            {{- with $card_icon }}
-              <img src="{{ .RelPermalink }}" alt="{{ $icon_alt }}" width="{{ $icon_width }}" height="32">
-            {{- end }}
-          {{ end }}
-      {{- if $featured }}
-        </h1>
-      {{ else }}
-        </h2>
+      {{- if $show_title }}
+        {{- if $featured }}
+          <h1 class="u-text-xl xs:u-text-2xl u-text-display u-mt-0 {{ if eq .Content "" }}u-mb-0{{ else }}u-mb-1.5{{ end }} u-flex u-flex-wrap u-items-center u-content-between">
+        {{- else }}
+          <h2 class="u-text-lg xs:u-text-xl u-mb-1 u-text-display u-mt-0 u-flex u-items-center u-content-between">
+        {{- end }}
+            <span {{ with .Params.card_icon }}class="u-mr-1"{{ end }}>{{ .Title }}</span>
+            {{ with .Params.card_icon }}
+              {{- $card_icon := $.Resources.GetMatch . }}
+              {{- with $card_icon }}
+                <img src="{{ .RelPermalink }}" alt="{{ $icon_alt }}" width="{{ $icon_width }}" height="32">
+              {{- end }}
+            {{ end }}
+        {{- if $featured }}
+          </h1>
+        {{ else }}
+          </h2>
+        {{- end }}
       {{- end }}
     {{- .Content }}
   {{- with .Params.card_centered }}</div>{{ end }}

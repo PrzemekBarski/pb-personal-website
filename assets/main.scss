@@ -2,6 +2,7 @@
 
 $enable-container-query: false;
 
+@import "styles/functions";
 @import "styles/settings";
 @import "styles/mixins";
 @import "styles/objects/index";

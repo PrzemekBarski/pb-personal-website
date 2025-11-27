@@ -1,10 +1,13 @@
 <!doctype html>
 
-{{- $scss_options := dict "includePaths" "node_modules/basiclightbox/src/styles/main.scss" "outputStyle" "compressed" -}}
+{{- $scss_options := dict
+  "includePaths" "node_modules/basiclightbox/src/styles/main.scss"
+  "outputStyle" "compressed"
+-}}
 
 {{- if .Params.container_query }}
   {{- $alt_scss := resources.Get "main-container-query.scss" }}
-  {{- $alt_style := $alt_scss | resources.ToCSS $scss_options }}
+  {{- $alt_style := $alt_scss | css.Sass $scss_options }}
   <html lang="pl" data-controller="container-query" data-alt-stylesheet="{{ $alt_style.RelPermalink }}">
 {{- else }}
   <html lang="pl">
@@ -41,8 +44,14 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   {{- $scss := resources.Get "main.scss" }}
-  {{- $style := $scss | resources.ToCSS $scss_options }}
+  {{- $style := $scss | css.Sass $scss_options }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{- if .Params.container_query }}data-container-query-target="stylesheet"{{ end }}>
+  {{ range .Resources.ByType "text" }}
+    {{ if eq .MediaType.Type "text/x-scss" }}
+      {{- $style := . | css.Sass $scss_options }}
+      <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    {{ end }}
+  {{ end }}
 
   <meta name="theme-color" content="#525252">
 
@@ -64,18 +73,20 @@
 </head>
 
 <body class="u-bg-gray-1">
-  {{- block "main" . }}
-    {{ .Content }}
-  {{- end }}
-  {{- $js_options := dict "minify" true }}
-  {{- $js := resources.Get "main.js" | js.Build $js_options }}
-  <script src="{{ $js.RelPermalink }}"></script>
-  {{- with .Params.scripts }}
-    {{- range . }}
-      {{- $js := resources.Get . | js.Build $js_options }}
-      <script src="{{ $js.RelPermalink }}"></script>
+  <div class="o-wrapper">
+    {{- block "main" . }}
+      {{ .Content }}
     {{- end }}
-  {{- end }}
+    {{- $js_options := dict "minify" true }}
+    {{- $js := resources.Get "main.js" | js.Build $js_options }}
+    <script src="{{ $js.RelPermalink }}"></script>
+    {{- with .Params.scripts }}
+      {{- range . }}
+        {{- $js := resources.Get . | js.Build $js_options }}
+        <script src="{{ $js.RelPermalink }}"></script>
+      {{- end }}
+    {{- end }}
+  </div>
 </body>
 
 </html>

@@ -23,5 +23,19 @@
       position: fixed;
     }
 
+    .#{$prefix}u-position-full {
+      inset: 0;
+    }
+
+    .#{$prefix}u-position-auto {
+      inset: initial;
+    }
+
+    @for $i from 0 through 12 {
+      .#{$prefix}u-z-index-#{$i} {
+        z-index: $i;
+      }
+    }
+
   }
 }

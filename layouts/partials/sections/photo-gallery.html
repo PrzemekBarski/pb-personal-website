@@ -1,0 +1,16 @@
+<section class="u-bg-{{ $.Params.color }} u-py-6">
+  <div class="o-container">
+    <h2 class="u-text-2xl u-text-display u-mt-0">{{ .Title }}</h2>
+    <div class="u-text-lg">{{ .Content }}</div>
+
+    <div class="u-grid u-mt-6">
+      {{ range .Resources.ByType "image" }}
+        <div class=" u-b-6 u-border-white u-grid-colspan-{{ if (div .Width .Height) }}8{{ else }}4{{ end }} u-shadow-sm">
+          {{ $width := cond (div .Width .Height) 732 352 }}
+          {{ $height := 474 }}
+          {{ partial "image" (dict "Page" $ "src" . "width" $width "height" $height "crop" true "class" "u-block") }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

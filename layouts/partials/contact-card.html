@@ -1,6 +1,6 @@
 {{- $class := .class | default "" }}
-<footer class="{{ $class }} u-shadow-solid-md u-text-sm u-flex">
-  <div class="u-bg-green u-py-1.5 u-px-1.5 u-basis-12 u-flex u-flex-col xs:u-flex-row u-items-center u-content-center u-text-center sm:u-text-left">
+<footer class="{{ $class }} u-shadow-sm u-text-sm u-flex">
+  <div class="u-bg-blue-800 u-text-white u-py-1.5 u-px-1.5 u-basis-12 u-flex u-flex-col xs:u-flex-row u-items-center u-content-center u-text-center sm:u-text-left">
     <div class="xs:u-pr-2 sm:u-pr-3 u-mb-1.5 xs:u-mb-0">
       {{- $image := resources.Get "images/przemyslaw-barski.png" }}
       <img src="{{ $image.RelPermalink }}" alt="Przemysław Barski" width="120" height="120" />

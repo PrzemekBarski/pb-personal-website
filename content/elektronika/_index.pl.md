@@ -1,10 +1,11 @@
 ---
-Title: Elektronika
+Title: Elektronik / Mechatronik
 description: Projektowanie elektroniki analogowej i cyfrowej. Studyjne i sceniczne procesory audio.
-image_alt: Obrazek przedstawiający analogowy przedwzmacniacz mikrofonowy
-card_size: medium-large
-card_color: black
-card_featured: true
+color: yellow
+featured_image:
+  src: elektronika.jpg
+  thumbnail: elektronika-thumbnail.jpg
+  alt: Przemysław Barski oparty o biurko w swojej prototypowni
 scripts:
   - 3d-viewer.js
 _build:
@@ -17,10 +18,8 @@ cascade:
 order: 0
 ---
 
-{{< image src="stray-cat.svg" width="100" height="25" class="u-mb-0.75" >}}
+{{< hero-vertical pretitle="Przemysław Barski" content_color="blue-800" title="Elektronik / Mechatronik" class="t-elektronika-hero" >}}
 
-Komercyjne projekty elektroniczne realizuję od 2012 roku, do tej pory wykonałem ich kilkadziesiąt. Specjalizuję się w analogowych i cyfrowych urządzeniach dla muzyków i studiów nagrań, ale projektowałem również urządzenia dla przemysłu kolejowego.
+  Projektowanie układów elektroniczych i PCB, programowanie mikrokontrolerów, prototypowanie.
 
-Od czerwca 2023 pracuję też w dziale R&D firmy Faurecia Pneumatic gdzie projektuję i prototypuję układy mechatroniczne samochodowych systemów komfortu.
-
-Posiadam dobrze wyposażone i zabezpieczone przed ESD laboratorium w którym mogę wykonywać wysokiej jakości prototypy.
+{{</ hero-vertical >}}

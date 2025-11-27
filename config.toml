@@ -1,6 +1,7 @@
 baseURL = 'https://przemyslawbarski.pl/'
 defaultContentLanguage = 'pl'
 disableKinds = ['taxonomy', 'term']
+enableInlineShortcodes = true
 
 [languages]
   [languages.pl]

@@ -1,0 +1,57 @@
+.u-round {
+	border-radius: 50%;
+}
+
+.u-rounded {
+  border-radius: 8px;
+}
+
+.u-rounded-lg {
+  border-radius: 16px;
+}
+
+.u-rounded-xl {
+  border-radius: 24px;
+}
+
+
+$types: "l", "r", "t", "b", "x", "y", "";
+
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  $prefix: if($breakpoint-value != 0, "#{$breakpoint-name}\\:", "");
+
+  @include container-query($breakpoint-name) {
+
+  	@each $type in $types {
+      @for $i from 0 through 8 {
+
+        @if $i == 0 {
+          .#{$prefix}u-b#{$type}-#{$i} {
+            border: none;
+          }
+        }
+
+        @else {
+        	.#{$prefix}u-b#{$type}-#{$i} {
+            border-width: #{$i + "px"};
+            border-color: var(--color-black);
+            @if $type == "l" or $type == "x" or $type == "" {
+              border-left-style: solid;
+            }
+            @if $type == "r" or $type == "x" or $type == "" {
+              border-right-style: solid;
+            }
+            @if $type == "t" or $type == "y" or $type == "" {
+              border-top-style: solid;
+            }
+            @if $type == "b" or $type == "y" or $type == "" {
+              border-bottom-style: solid;
+            }
+          }
+        }
+      }
+    }
+    
+  }
+
+}

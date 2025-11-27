@@ -4,26 +4,80 @@ $container-padding-mobile: 1.5rem;
 :root {
   --color-black: #0d0d0d;
   --color-white: #fff;
-  --color-gray-1: #525252;
-  --color-gray-2: #242424;
-  --color-gray-3: #1a1a1a;
-  --color-red: #521314;
-  --color-green: #004052;
-  --color-blue: #1c1c50;
-  --color-highlight: #b97f00;
+  --color-transparent: rgba(0,0,0,0);
+  // --color-gray-1: #e2e2e0;
+  // --color-gray-2: #999;
+  // --color-gray-3: #1a1a1a;
+  // --color-red-1: #e99c9e;
+  // --color-red-2: #de797b; // #5f0a04
+  // --color-red-3: #7c1a1a; // #5f0a04
+  // --color-green-1: #97e5a0;
+  // --color-green-2: #6ccb77;
+  // --color-dark-green: #004052;
+  // --color-blue-1: #86dcf5;
+  // --color-blue-2: #5dc1de;  // Blue3: #182143, #123456, #124351
+  // --color-blue-3: #123456;  // Blue3: #182143, #123456, #124351
+  // --color-yellow-1: #f1ee87;  // #f1ee87
+  // --color-yellow: #dbd759;  // #f1ee87
+  // --color-highlight: #b52e0d;
 }
 
 $colors: (
   "black": var(--color-black),
   "white": var(--color-white),
-  "gray-1": var(--color-gray-1),
-  "gray-2": var(--color-gray-2),
-  "gray-3": var(--color-gray-3),
-  "red": var(--color-red),
-  "green": var(--color-green),
-  "blue": var(--color-blue),
-  "highlight": var(--color-highlight)
+  "transparent": var(--color-transparent),
+  // "gray-1": var(--color-gray-1),
+  // "gray-2": var(--color-gray-2),
+  // "gray-3": var(--color-gray-3),
+  // "red-1": var(--color-red-1),
+  // "red-2": var(--color-red-2),
+  // "red-3": var(--color-red-3),
+  // "green-1": var(--color-green-1),
+  // "green-2": var(--color-green-2),
+  // "dark-green": var(--color-dark-green),
+  // "blue-1": var(--color-blue-1),
+  // "blue-2": var(--color-blue-2),
+  // "blue-3": var(--color-blue-3),
+  // "yellow-1": var(--color-yellow-1),
+  // "yellow": var(--color-yellow),
+  "highlight": var(--color-red-500)
 );
+
+$colors: map-merge($colors, $generated-colors);
+
+// $base-colors: (
+//   "gray": #999690,
+//   "red": #d03e40,
+//   "green": #3dc754,
+//   "blue": #05AEFF,
+//   "yellow": #ecc413
+// );
+
+// @function tint($color, $percentage) {
+//   @return mix(white, $color, $percentage);
+// }
+
+// @function lightness($color, $percentage) {
+//   // @return mix(black, $color, $percentage);
+//   @return adjust-color($color, $lightness: $percentage);
+// }
+
+// :root {
+//   @each $color-name, $color in $base-colors {
+//     @for $i from 1 through 4 {
+//       --#{$color-name}-#{100 * $i}: #{lightness($color, 50% - $i * 10%)};
+//       $new-color: (#{$color-name + "-" + (100 * $i)}: var(--#{$color-name}-#{100 * $i}));
+//       $colors: map-merge($colors, $new-color) !global;
+//     }
+//     @for $i from 0 through 4 {
+//       --#{$color-name}-#{500 + 100 * $i}: #{lightness($color, 0 - $i * 10%)};
+//       $new-color: (#{$color-name + "-" + (500 + 100 * $i)}: var(--#{$color-name}-#{500 + 100 * $i}));
+//       $colors: map-merge($colors, $new-color) !global;
+//     }
+//   }
+// }
+
+// @debug $colors;
 
 $breakpoints: (
   "": 0,

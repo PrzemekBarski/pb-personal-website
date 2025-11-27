@@ -7,14 +7,16 @@
 {{ $sizes := .Get "sizes" }}
 
 {{ if $src }}
-  {{ partial "image" (dict
-      "src" $src
-      "alt" $alt
-      "loading" $loading
-      "width" (int $width)
-      "height" $height
-      "class" $class
-      "sizes" $sizes
-      "Page" .Page)
-  }}
+
+{{ partial "image" (dict
+    "src" $src
+    "alt" $alt
+    "loading" $loading
+    "width" (int $width)
+    "height" $height
+    "class" $class
+    "sizes" $sizes
+    "Page" .Page)
+}}
+  
 {{ end }}

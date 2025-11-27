@@ -1,34 +1,32 @@
 {{- $asset := .Page.Resources.GetMatch .src -}}
+{{- if not $asset }}
+  {{- $asset = resources.Get .src }}
+{{- end }}
 
 {{- if $asset }}
   {{- $rem := 16 }}
   {{- $width := .width }}
   {{- $height := .height }}
+  {{- $crop := and .crop .height }}
+  {{- $anchor := cond (and (isset . "anchor") (gt (len .anchor) 0)) (printf " %s" .anchor) "" }}
   {{- $image_versions := slice -}}
   {{- $image_sizes := slice -}}
+  
 
   {{ if ne $asset.MediaType.SubType "svg" }}
 
-    {{/* Add image size based on declared width */}}
-    {{- with $width }}
-      {{- $image_width2x := mul . 2 }}
-      {{- $image := $asset -}}
+    {{- $ratio := div (float $asset.Height) $asset.Width }}
+    {{- $original_ratio := $ratio }}
 
-      {{- if not (eq $image_width2x $asset.Width) }}
-        {{- $image := $asset.Resize (printf "%dx" $image_width2x) }}
-        {{- $image_versions = $image_versions | append (printf "%s %dw" $image.RelPermalink $image_width2x) }}
-      {{- end -}}
-
-      {{- if not $height }}
-        {{- $height = div $image.Height 2 }}
-      {{- end }}
-    {{- end -}}
-
-    {{/* Add original image to `srset` just in case */}}
-    {{- $image_versions = $image_versions | append (printf "%s %dw" $asset.RelPermalink $asset.Width) -}}
+    {{- if $crop }}
+      {{- $ratio = div (float $height) $width }}
+    {{- end }}
 
     {{/* Define responsive breakpoints names and min widths */}}
     {{- $viewport_breakpoint_names := slice
+      "full"
+      "attr"
+      "xl"
       "lg"
       "md"
       "sm"
@@ -36,30 +34,52 @@
       "default"
     }}
     {{- $viewport_breakpoint_sizes := slice
+      (div $asset.Width 2)
+      $width
+      (mul 90 $rem)
       (mul 70 $rem)
       (mul 55 $rem)
       (mul 40 $rem)
       (mul 30 $rem)
-      (add 375 $rem)
+      (mul 24 $rem)
     -}}
 
-    {{/* Define default <img> `sizes` attribute values map */}}
-    {{- $default_sizes := dict
-      "xs" "calc(100vw - 4rem)"
-      "default" "calc(100vw - 3rem)"
-    -}}
-
-    {{- $defined_image_sizes := .sizes | default $default_sizes }}
+    {{ $defined_image_sizes := dict }}
+    {{ with .sizes }}
+      {{ $rows := split . "," }}
+      {{ range $rows }}
+        {{ $row := split . ":" }}
+        {{ $defined_image_sizes = merge $defined_image_sizes (dict (index $row 0) (index $row 1)) }}
+      {{ end }}
+    {{ else }}
+      {{/* Define default <img> `sizes` attribute values map */}}
+      {{- $default_sizes := dict
+        "xs" "calc(100vw - 4rem)"
+        "default" "calc(100vw - 3rem)"
+      -}}
+      {{ $defined_image_sizes = merge $defined_image_sizes $default_sizes }}
+    {{ end }}
 
     {{/* Generate `sizes` and `srcset` attribute arrays */}}
     {{- range $size_index, $size_name := $viewport_breakpoint_names }}
       {{- $size_value := index $viewport_breakpoint_sizes $size_index }}
-      {{- $image_width := sub $size_value (mul 4 $rem) }}
+      {{- $image_width := $size_value }}
       {{- $image_width2x := mul $image_width 2 -}}
 
       {{- if ge $asset.Width $image_width2x }}
         {{- $image := $asset.Resize (printf "%dx" $image_width2x) }}
-        {{- $image_versions = $image_versions | append (printf "%s %dw" $image.RelPermalink $image_width2x) }}
+
+        {{- if $crop }}
+          {{- $image_height2x := int (math.Round (mul $image_width2x $ratio)) }}
+
+          {{- if gt $ratio $original_ratio }}
+            {{ $image = $asset.Resize (printf "x%d" $image_height2x) }}
+          {{- end }}
+
+          {{- $image = $image.Crop (printf "%dx%d%s" $image_width2x $image_height2x $anchor) }}
+        {{- end }}
+
+        {{- $image_versions = $image_versions | append (printf "%s %dw" $image.RelPermalink $image.Width) }}
       {{- end -}}
 
       {{- if isset $defined_image_sizes $size_name }}
@@ -74,14 +94,14 @@
 
   {{ end }}
 
-  <img
-    src="{{ $asset.RelPermalink }}"
-    {{ if len $image_versions }}srcset="{{ delimit $image_versions ", " }}"{{ end }}
-    {{ if len $image_sizes }}sizes="{{ delimit $image_sizes ", " }}"{{ end }}
-    {{ with .class }}class="{{ . }}"{{ end }}
-    {{ with $width }}width="{{ . }}"{{ end }}
-    {{ with $height }}height="{{ . }}"{{ end }}
-    {{ with .loading }}loading="{{ . }}"{{ end -}}
-    alt="{{ .alt }}"
-  />
+<img
+  src="{{ $asset.RelPermalink }}"
+  {{ if len $image_versions }}srcset="{{ delimit $image_versions ", " }}"{{ end }}
+  {{ if len $image_sizes }}sizes="{{ delimit $image_sizes ", " }}"{{ end }}
+  {{ with .class }}class="{{ . }}"{{ end }}
+  {{ with $width }}width="{{ . }}"{{ end }}
+  {{ with $height }}height="{{ . }}"{{ end }}
+  {{ with .loading }}loading="{{ . }}"{{ end -}}
+  alt="{{ .alt }}"
+/>
 {{- end }}
