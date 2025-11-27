@@ -7,8 +7,8 @@ card_size: full
 card_color: black
 card_featured: true
 _build:
-  list: always
-  render: always
+  list: never
+  render: never
 cascade:
   _build:
     list: local

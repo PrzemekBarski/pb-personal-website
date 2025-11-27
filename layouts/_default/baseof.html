@@ -4,7 +4,7 @@
 
 {{- if .Params.container_query }}
   {{- $alt_scss := resources.Get "main-container-query.scss" }}
-  {{- $alt_style := $alt_scss | resources.ToCSS $scss_options }}
+  {{- $alt_style := $alt_scss | css.Sass $scss_options }}
   <html lang="pl" data-controller="container-query" data-alt-stylesheet="{{ $alt_style.RelPermalink }}">
 {{- else }}
   <html lang="pl">
@@ -41,7 +41,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   {{- $scss := resources.Get "main.scss" }}
-  {{- $style := $scss | resources.ToCSS $scss_options }}
+  {{- $style := $scss | css.Sass $scss_options }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" {{- if .Params.container_query }}data-container-query-target="stylesheet"{{ end }}>
 
   <meta name="theme-color" content="#525252">
