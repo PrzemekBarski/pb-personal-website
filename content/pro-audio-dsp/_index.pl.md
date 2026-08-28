@@ -16,4 +16,8 @@ cascade:
 order: 1
 ---
 
-Programowanie procesorów audio dla muzyków, producentów i realizatorów nagrań
+{{< hero pretitle="Przemysław Barski" title="Audio Software Developer" color="red" >}}
+
+  Projektowanie i programowanie aplikacji dla muzyków i producentów.
+
+{{</ hero >}}

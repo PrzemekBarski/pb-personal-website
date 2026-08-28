@@ -1,5 +1,6 @@
 ---
 Title: Stray Cat Purrist
+Layout: sections/simple
 type: stacked
 inverted: true
 class: u-maxw-48 u-mx-auto
@@ -13,7 +14,7 @@ featured_video:
   width: 960
   height: 671
   max_width: 48
-order: 1
+order: 0
 ---
 
 Purrist to zaawansowana, gitarowa bramka szumów zaprojektowana do walki ze wszystkimi zakłóceniami typowymi dla gitar elektrycznych. To co odróżnia ją od innych narzędzi tego typu jest to, że nie skraca naturalnego wybrzmienia instrumentu. Purrist jest dostępny na Apple iPad i Mac z procesorami Apple Silicon.
