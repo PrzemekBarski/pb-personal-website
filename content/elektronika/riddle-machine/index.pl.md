@@ -12,7 +12,7 @@ color: blue
 decor:
   variant: 2
   color: gray-2
-order: 2
+order: 5
 ---
 
 Ten w całości analogowy efekt audio ma nieograniczone możliwości brzmieniowe i sprawdzi się równie dobrze z gitarą, basem, syntezatorem czy dowolnym innym elektrycznym / elektronicznym instrumentem. Sercem urządzenia jest konfigurowalny filtr który może być kontrolowany dynamiką gry, LFO lub pedałem ekspresji. Pedał może też służyć do sterowania szybkością LFO.

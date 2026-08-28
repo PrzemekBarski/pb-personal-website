@@ -8,7 +8,6 @@ featured_image:
   width: 592
   height: 789
 color: gray-2
-inverted: true
 decor:
   variant: 3
   color: red

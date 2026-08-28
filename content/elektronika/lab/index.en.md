@@ -1,22 +1,18 @@
 ---
-title: Automatic Train Braking system testing device
+title: Prototyping Lab
 featured_image:
-  src: czmr01.png
-  alt: Computer-rendered model of the SHP system testing device
+  src: lab.jpg
+  alt: "Photo of the electronics workshop: a workbench with a high stool and laboratory equipment on shelves."
   loading: lazy
+  padding: false
   width: 592
-  height: 404
-model_3d:
-  url: /models/czmr01/czmr01
-  size: 22.8 MB
+  height: 789
 color: gray-2
 decor:
-  variant: 1
-  color: blue
-badge: true
+  variant: 3
+  color: red
 order: 0
+type: wide-text
 ---
 
-CZMR01 has been designed to check the correct operation of the Automatic Train Braking (SHP) system. SHP verifies the driver's vigilance by triggering light and sound signals. The driver should react to them by pressing the appropriate button. This process is triggered by a special trackside resonator.
-
-Subsequent events of this sequence should take place at strictly defined intervals. CZMR01 is intended to measure these intervals. In order to use it, you need to connect the device to each of the system modules and start the process by driving the train over the resonator. CZMR01 will capture appropriate pulses and display the times between them. The panel has been designed to be mounted in a plywood transport case and includes a wire harness compartment door.
+In my well-equipped workshop, I can test and measure successive product iterations. In addition to standard laboratory equipment, I also have a 3D printer, reflow oven, UV exposure unit, mechanical workbench, and assembly station.

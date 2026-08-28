@@ -12,7 +12,7 @@ color: red
 decor:
   variant: 4
   color: gray-2
-order: 2
+order: 4
 ---
 
 Bass Pedals is a programmable MIDI foot controller. It was inspired by bassists like Mike Rutherford or John Paul Jones, who often doubled as rhythm guitarists on stage and played the bassline with an organ foot keyboard.

@@ -19,8 +19,6 @@ order: 0
 
 {{< image src="stray-cat.svg" width="100" height="25" class="u-mb-0.75" >}}
 
-Komercyjne projekty elektroniczne realizuję od 2012 roku, do tej pory wykonałem ich kilkadziesiąt. Specjalizuję się w analogowych i cyfrowych urządzeniach dla muzyków i studiów nagrań, ale projektowałem również urządzenia dla przemysłu kolejowego.
+Specjalizuję się w projektach badawczo-rozwojowych, budowie prototypów oraz specjalistycznych narzędzi dla branży kolejowej, motoryzacyjnej i pro audio.
 
-Od czerwca 2023 pracuję też w dziale R&D firmy Faurecia Pneumatic gdzie projektuję i prototypuję układy mechatroniczne samochodowych systemów komfortu.
-
-Posiadam dobrze wyposażone i zabezpieczone przed ESD laboratorium w którym mogę wykonywać wysokiej jakości prototypy.
+Projektuję układy elektroniki analogowej i cyfrowej oraz PCB. Zajmuję się również rozwojem oprogramowania systemów wbudowanych. Posiadam dobrze wyposażone i zabezpieczone przed ESD laboratorium w którym mogę wykonywać wysokiej jakości prototypy i testować kolejne iteracje produktu.
