@@ -1,4 +1,4 @@
-baseURL = 'https://przemyslawbarski.pl/'
+baseURL = 'https://przemyslawbarski.netlify.app/'
 defaultContentLanguage = 'pl'
 disableKinds = ['taxonomy', 'term']
 
