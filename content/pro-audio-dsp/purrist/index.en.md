@@ -1,5 +1,6 @@
 ---
 Title: Stray Cat Purrist
+Layout: sections/simple
 type: stacked
 inverted: true
 class: u-maxw-48 u-mx-auto

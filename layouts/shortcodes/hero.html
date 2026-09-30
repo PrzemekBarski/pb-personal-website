@@ -3,7 +3,7 @@
 {{ $color := .Get "color" }}
 
 {{ $bg_img := .Page.Resources.GetMatch .Page.Params.featured_image.src }}
-<section class="t-hero u-relative u-bg-{{ .Params.color }}-50">
+<section class="t-hero u-relative u-bg-{{ .Params.color }}">
 
   {{ if $bg_img }}
     {{ partial "image" (dict "Page" .Page "src" $bg_img "width" 1920 "height" 1024 "crop" true "sizes" "default:100vw" "alt" .Page.Params.featured_image.alt "class" "u-w-full u-block") }}

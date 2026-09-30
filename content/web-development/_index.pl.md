@@ -16,7 +16,7 @@ cascade:
 order: 2
 ---
 
-{{< hero pretitle="Przemysław Barski" title="Web Developer" color="blue" >}}
+{{< hero pretitle="Przemysław Barski" title="Web Developer" color="blue-25" >}}
 
   Kodowanie stron i sklepów internetowych. Tworzenie pluginów i szablonów Wordpress.
 

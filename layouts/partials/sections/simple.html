@@ -1,29 +1,106 @@
-{{ $image_padding := true }}
-{{- if isset .Params "featured_image" }}
-  {{- if isset .Params.featured_image "padding" }}
-    {{- $image_padding = .Params.featured_image.padding }}
-  {{- end }}
-{{- end }}
-{{- if isset .Params "featured_video" }}
-  {{- if isset .Params.featured_video "padding" }}
-    {{- $image_padding = .Params.featured_video.padding }}
-  {{- end }}
-{{- end }}
-<section class="u-bg-{{ $.Params.color }}-900 u-py-4">
+{{/*
+
+Parameters:
+
+  title;
+  color;
+  class;
+  type (stacked, wide-text);
+  inverted;
+  badge;
+  heading_tag (h1-h6, default h2);
+  featured_image:
+    src
+    alt
+    width
+    height
+    padding;
+  featured_video:
+    src
+    poster
+    autoplay
+    loop
+    width
+    height
+    padding
+    max_width;
+  model_3d:
+    url
+    size
+  
+  */}}
+
+{{- $color := .Params.color -}}
+{{- $type := .Params.type -}}
+{{- $inverted := .Params.inverted -}}
+{{- $image_padding := true -}}
+{{- if and .Params.featured_image (isset .Params.featured_image "padding") -}}
+  {{- $image_padding = .Params.featured_image.padding -}}
+{{- end -}}
+{{- if and .Params.featured_video (isset .Params.featured_video "padding") -}}
+  {{- $image_padding = .Params.featured_video.padding -}}
+{{- end -}}
+{{- $heading_tag := .Params.heading_tag | default "h2" -}}
+{{- if not (in (slice "h1" "h2" "h3" "h4" "h5" "h6") $heading_tag) -}}
+  {{- $heading_tag = "h2" -}}
+{{- end -}}
+{{- $page_id := .File.ContentBaseName -}}
+{{- $custom_class := .Params.class | default "" -}}
+{{- $mobile_heading_visibility := "" -}}
+{{- if ne $type "stacked" -}}
+  {{- $mobile_heading_visibility = "md:u-hidden" -}}
+{{- end -}}
+{{- $content_column_class := "" -}}
+{{- if eq $type "wide-text" -}}
+  {{- $content_column_class = "md:u-grid-colspan-7" -}}
+{{- else if ne $type "stacked" -}}
+  {{- $content_column_class = "md:u-grid-colspan-5" -}}
+{{- end -}}
+{{- if ne $type "stacked" -}}
+  {{- if $inverted -}}
+    {{- $content_column_class = printf "%s md:u-order-1 md:u-ml-3" $content_column_class -}}
+  {{- else -}}
+    {{- $content_column_class = printf "%s md:u-mr-3" $content_column_class -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $inverted -}}
+  {{- $content_column_class = printf "%s md:u-order-0" $content_column_class -}}
+{{- end -}}
+{{- $media_column_class := "" -}}
+{{- if eq $type "wide-text" -}}
+  {{- $media_column_class = "md:u-grid-colspan-5" -}}
+{{- else if ne $type "stacked" -}}
+  {{- $media_column_class = "md:u-grid-colspan-7 md:u-mb-0" -}}
+{{- end -}}
+{{- if .Params.badge -}}
+  {{- $media_column_class = printf "%s u-mt-4 md:u-mt-0" $media_column_class -}}
+{{- end -}}
+{{- with .Params.featured_video.max_width -}}
+  {{- $media_column_class = printf "%s u-maxw-%v" $media_column_class . -}}
+{{- end -}}
+{{- $media_padding_class := cond $image_padding "u-p-2" "" -}}
+{{- $video_resource := false -}}
+{{- $poster_resource := false -}}
+{{- with .Params.featured_video -}}
+  {{- $video_resource = $.Resources.GetMatch .src -}}
+  {{- $poster_resource = $.Resources.GetMatch .poster | default false -}}
+{{- end -}}
+{{- $loader := resources.Get "icons/loader.svg" -}}
+{{- $3d_view := resources.Get "icons/rotate.svg" -}}
+{{- $model_url := "" -}}
+{{- $model_material_url := "" -}}
+{{- with .Params.model_3d -}}
+  {{- $model_url = printf "%s.obj" .url -}}
+  {{- $model_material_url = printf "%s.mtl" .url -}}
+{{- end -}}
+<section class="u-bg-{{ $color }} u-py-4">
   <div class="o-container">
-    <div id="{{ .File.ContentBaseName }}" class="u-grid u-items-center {{ with .Params.class }}{{ . }}{{ end }}" {{- with .Params.model_3d }}data-controller="3d-model-viewer" data-model-url="{{ .url }}.obj" data-material-url="{{ .url }}.mtl"{{ end }}>
-      <h3 class="u-text-xl u-text-display u-mt-0 u-ml-1.5 u-mb-0 u-grid-colspan-12 u-relative {{ if ne .Params.type "stacked" }}md:u-hidden{{ end }}" style="z-index: 1;">{{ .Title }}</h3>
-      <div class="u-relative u-mb-1 md:u-mb-1.5 lg:u-mb-0 u-order-1 u-grid-colspan-12
-        {{ if eq .Params.type "wide-text" }}md:u-grid-colspan-7
-        {{ else if ne .Params.type "stacked" -}}
-          md:u-grid-colspan-5
-        {{- end }}
-        {{ if ne .Params.type "stacked" -}}
-          {{- if .Params.inverted }} md:u-order-1 md:u-ml-3{{ else }} md:u-mr-3{{ end -}}
-        {{- end }} {{ if not .Params.inverted }}md:u-order-0{{ end }}">
+    <div id="{{ $page_id }}" class="u-grid u-items-center {{ $custom_class }}" {{- with .Params.model_3d }}data-controller="3d-model-viewer" data-model-url="{{ $model_url }}" data-material-url="{{ $model_material_url }}"{{ end }}>
+      {{ printf "<%s class=\"u-text-xl u-text-display u-mt-0 u-mb-0 u-grid-colspan-12 u-relative %s\" style=\"z-index: 1;\">" $heading_tag $mobile_heading_visibility | safeHTML }}{{ .Title }}{{ printf "</%s>" $heading_tag | safeHTML }}
+      <div class="u-relative u-mb-1 md:u-mb-1.5 lg:u-mb-0 u-order-1 u-grid-colspan-12 {{ $content_column_class }}">
         <div class="u-relative" style="z-index: 1;">
-          {{ if ne .Params.type "stacked" }}
-            <h3 class="u-text-xl u-text-display u-mt-0 u-hidden md:u-block">{{ .Title }}</h3>
+          {{ if ne $type "stacked" }}
+            {{ printf "<%s class=\"u-text-xl u-text-display u-mt-0 u-hidden md:u-block\">" $heading_tag | safeHTML }}{{ .Title }}{{ printf "</%s>" $heading_tag | safeHTML }}
           {{ end }}
           {{- with .Params.model_3d }}
             <button class="c-button u-absolute v--white sm:u-hidden v--no-transform u-mb-1" data-action="3d-model-viewer#load" data-3d-model-viewer-target="loadButton">
@@ -33,8 +110,8 @@
           {{ .Content }}
         </div>
       </div>
-      <div class="u-text-center u-grid-colspan-12 u-mb-1  {{ if eq .Params.type "wide-text" }}md:u-grid-colspan-5{{ else if ne .Params.type "stacked" }}md:u-grid-colspan-7 md:u-mb-0{{ end }} c-3d-model-viewer u-flex u-relative {{ if .Params.badge }}u-mt-4 md:u-mt-0{{ end }}{{ with .Params.featured_video.max_width}}u-maxw-{{ . }}{{ end }}" style="z-index: 1;">
-        <div class="u-w-full u-bg-{{ .Params.color }}-100 {{ if $image_padding }}u-p-2{{ end }}">
+      <div class="u-text-center u-grid-colspan-12 u-mb-1 c-3d-model-viewer u-flex u-relative {{ $media_column_class }}" style="z-index: 1;">
+        <div class="u-w-full u-bg-{{ $color }}-100 {{ $media_padding_class }}">
           {{- with .Params.featured_image }}
             {{- $sizes := slice
                 "default:calc(100vw - 3rem - 10px)"
@@ -53,8 +130,6 @@
             }}
           {{- end }}
           {{- with .Params.featured_video }}
-            {{- $video := $.Resources.GetMatch .src }}
-            {{- $poster := $.Resources.GetMatch .poster | default false -}}
             <video
               {{ with .autoplay }}
                 autoplay
@@ -68,20 +143,18 @@
               playsinline
               {{ with .width }}width="{{ . }}"{{ end }}
               {{ with .height }}height="{{ . }}"{{ end }}
-              {{ with $poster}}poster="{{ .RelPermalink }}"{{ end }}
+              {{ with $poster_resource }}poster="{{ .RelPermalink }}"{{ end }}
               class="u-w-full u-block"
               data-controller="lazy-video"
             >
-              <source src="" data-src="{{ $video.RelPermalink }}">
+              <source src="" data-src="{{ $video_resource.RelPermalink }}">
             </video>
           {{- end }}
           {{- with .Params.model_3d }}
-            {{ $loader := resources.Get "icons/loader.svg" }}
             <img src="{{ $loader.RelPermalink }}" alt="Ładowanie modelu 3D" class="c-3d-model-viewer__loader" data-3d-model-viewer-target="loader">
             <span class="sm:u-hidden" data-3d-model-viewer-target="mobileTest"></span>
-            <div class="c-3d-model-viewer__container u-bg-{{ $.Params.color }}" data-3d-model-viewer-target="container">
+            <div class="c-3d-model-viewer__container u-bg-{{ $color }}" data-3d-model-viewer-target="container">
               <span class="c-3d-model-viewer__icon u-text-center">
-                {{ $3d_view := resources.Get "icons/rotate.svg" }}
                 <img src="{{ $3d_view.RelPermalink }}" alt="" width="28" height="28" />
                 <p class="u-m-0">3D</p>
               </span>

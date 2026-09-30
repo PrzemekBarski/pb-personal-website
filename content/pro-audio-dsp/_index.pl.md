@@ -16,7 +16,7 @@ cascade:
 order: 1
 ---
 
-{{< hero pretitle="Przemysław Barski" title="Audio Software Developer" color="red" >}}
+{{< hero pretitle="Przemysław Barski" title="Audio Software Developer" color="blue-25" >}}
 
   Projektowanie i programowanie aplikacji dla muzyków i producentów.
 
