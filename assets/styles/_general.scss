@@ -5,9 +5,13 @@ $basicLightbox__timing: ease; // Transition timing
 
 @import './../../node_modules/basiclightbox/src/styles/main';
 
-.basicLightbox__placeholder {
-  height: 100%;
-  overflow: hidden;
+.basicLightbox {
+  height: 100lvh;
+
+  &__placeholder {
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 * {
