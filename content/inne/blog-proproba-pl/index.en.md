@@ -10,7 +10,7 @@ decor:
   variant: 4
   color: gray-2
 order: 0
-_build:
+build:
   list: never
   publishResources: false
   render: never

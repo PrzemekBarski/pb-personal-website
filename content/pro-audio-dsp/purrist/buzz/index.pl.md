@@ -1,7 +1,6 @@
 ---
 Title: Buzz
 Layout: sections/simple
-heading_tag: h3
 inverted: false
 type: wide-text
 class: u-maxw-48 u-mx-auto
@@ -15,4 +14,4 @@ featured_image:
 order: 1
 ---
 
-Ta sekcja odpowiada za eliminację przydźwięku sieci elektrycznej, który jest zmorą gitar z przetwornikami typu single-coil. Mój autorski algorytm wykorzystuje przesunięcie fazowe i wynikający z niego filtr grzebieniowy oraz szereg odpowiednio dostrojonych filtrów IIR. Sygnał przetwarzany jest tylko poniżej zadanego progu głośności sygnału.
+Ta sekcja odpowiada za eliminację przydźwięku sieci elektrycznej, który jest zmorą gitar z przetwornikami typu single-coil. Mój autorski algorytm wykorzystuje przesunięcie fazowe oraz szereg odpowiednio dostrojonych filtrów IIR. Sygnał przetwarzany jest tylko poniżej zadanego progu głośności sygnału.

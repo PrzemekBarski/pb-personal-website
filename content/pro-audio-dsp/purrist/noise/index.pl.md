@@ -1,7 +1,6 @@
 ---
 Title: Noise
 Layout: sections/simple
-heading_tag: h3
 inverted: false
 type: wide-text
 class: u-maxw-48 u-mx-auto

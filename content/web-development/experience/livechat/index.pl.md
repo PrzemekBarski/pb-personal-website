@@ -9,5 +9,4 @@ logos:
 order: 1
 ---
 
-Utrzymanie i rozwój stron marketingowych oraz informacyjnych spółki w środowisku Jamstack i Wordpress (Hugo, PHP,
-HTML5, CSS3, Javascript, Vue.js, Netlify CMS, Sanity CMS)
+Utrzymanie i rozwój stron marketingowych oraz informacyjnych spółki w środowisku Jamstack i Wordpress (Hugo, PHP, HTML5, CSS3, Javascript, Vue.js, Netlify CMS, Sanity CMS, Headless Wordpress)

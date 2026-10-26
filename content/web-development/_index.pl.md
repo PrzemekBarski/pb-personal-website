@@ -6,17 +6,17 @@ featured_image:
   alt: Przemysław Barski w swoim biurze
 color: purple
 container_query: true
-_build:
+build:
   list: always
   render: always
 cascade:
-  _build:
+  build:
     list: local
     render: never
 order: 2
 ---
 
-{{< hero pretitle="Przemysław Barski" title="Web Developer" color="blue-25" >}}
+{{< hero pretitle="Przemysław Barski" title="Web Developer" color="blue-50" >}}
 
   Kodowanie stron i sklepów internetowych. Tworzenie pluginów i szablonów Wordpress.
 

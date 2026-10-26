@@ -1,0 +1,41 @@
+<section class="u-bg-{{ .Params.color }} u-py-4 sm:u-py-6" data-controller="mobile-hover">
+  <span class="sm:u-hidden" data-mobile-hover-target="mobileTest"></span>
+  <span class="u-hidden sm:u-block lg:u-hidden" data-mobile-hover-target="tabletTest"></span>
+  <div class="o-container">
+    <h2 class="u-text-2xl u-text-display u-mt-0">{{ .Title }}</h2>
+    {{ .Content }}
+    <div class="u-grid">
+      {{- range sort .RegularPages ".Params.order" }}
+        <article class="c-hover-lift c-link-overlay
+                        u-grid-colspan-12 sm:u-grid-colspan-6 md:u-grid-colspan-4 lg:u-grid-colspan-6
+                        u-flex u-flex-col lg:u-flex-row lg:u-items-center
+                        u-bg-white"
+                  data-controller="lightbox" data-mobile-hover-target="element">
+          <h3 class="u-text-lg u-basis-12 lg:u-basis-6 u-order-1 u-py-2 u-px-2 u-m-0">
+            <a href="#" class="c-link-overlay__a u-link-reset" data-action="lightbox#show:prevent">{{ .Title }}</a>
+          </h3>
+          {{- $image_src := printf "%s.*" .File.ContentBaseName }}
+          <div class="c-square u-basis-12 lg:u-basis-6 ">
+            <div class="c-square__content u-flex u-items-center u-content-center u-p-1 u-bg-{{ .Params.color }}-100">
+              {{ partial "image" (dict "Page" . "src" $image_src "width" 450 "alt" $.Params.image_alt ) }}
+            </div>
+          </div>
+          <script type="text/html" data-lightbox-target="content" >
+            <div class="u-text-white u-bg-gray-3 u-py-4" style="overflow: auto; height: 100%; width: 100%;">
+              <button class="u-absolute" style="right: 24px; top: 24px;" data-action="lightbox#close">
+                <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30" height="30" viewBox="0 0 7.94 7.94">
+                  <g fill="#fff" color="#000">
+                    <path d="m.37.37 7.2 7.19M.75 0 0 .74l7.19 7.2.75-.75zM.37 7.56 7.57.37"/>
+                    <path d="m7.19 0-7.2 7.19.76.74L7.94.74z"/>
+                  </g>
+                </svg>
+              </button>
+              {{ partial "sections/simple" . }}
+            </div>
+          </script>
+        </article>
+      {{- end -}}
+    </div>
+  </div>
+
+</section>

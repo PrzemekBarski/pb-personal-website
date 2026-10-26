@@ -1,34 +1,17 @@
 ---
-Title: Stray Cat Purrist
+Title: Buzz
 Layout: sections/simple
-type: stacked
-inverted: true
+inverted: false
+type: wide-text
 class: u-maxw-48 u-mx-auto
+color: red-25
 featured_image:
   src: buzz.png
-  alt: "Obrazek przedstawiający sekcję \"Buzz\" aplikacji Purrist, zawierającą parametry Ratio, Threshold, AC Frequency, oraz wskaźnik redukcji sygnału"
+  alt: "Image showing the \"Buzz\" section of the Purrist app, containing the Ratio, Threshold, AC Frequency parameters, and a signal reduction meter"
   padding: false
   width: 311
   height: 506
 order: 1
 ---
 
-Purrist is a state-of-the-art noise suppressor designed primarily for use with electric guitars. Its ability to preserve your guitar's sustain distinguishes it from other plugins and hardware gates. The three sections of the plugin target AC hum, white noise, and other interference. Purrist is currently available for iPad and Apple Silicon Macs.
-
-<div class="u-mb-3 u-mt-1">
-  <a href="https://straycataudio.com/purrist/" target="_blank" class="c-button v--no-transform">
-    <span class="c-button__content">Learn more</span>
-  </a>
-</div>
-
-### Buzz
-
-Effectively filters out AC interference, eliminating buzzing, espacially from single-coil pickups.
-
-### Fizz
-
-Employs a dynamic shelving filter to cut out high-frequency noise during string decay.
-
-### Noise
-
-Utilizes an expander-type noise gate that smoothly reduces any kind of noise.
+This section is responsible for eliminating mains hum, which plagues guitars with single-coil pickups. My custom algorithm uses a phase shift and a series of precisely tuned IIR filters. The signal is processed only below a set loudness threshold.

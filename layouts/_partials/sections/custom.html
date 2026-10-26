@@ -1,0 +1,16 @@
+{{- .Store.Set "sections_custom_invoked" true -}}
+<section class="u-bg-{{ $.Params.color }}">
+  
+  {{ if len .Content }}
+    {{- partial "sections/simple" . }}
+  {{ end }}
+
+  {{- range sort .RegularPages ".Params.order" }}
+    {{ if len .Layout }}
+      {{- partial .Layout . }}
+    {{ else }}
+      {{- partial "sections/custom" . }}
+    {{ end }}
+  {{- end -}}
+
+</section>

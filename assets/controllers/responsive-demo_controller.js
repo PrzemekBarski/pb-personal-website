@@ -23,15 +23,16 @@ export default class extends Controller {
     if (!this.transformed) {
       this.transformed = true;
       this.checkScreenSize();
+
+      if (this.screenSize === "mobile") {
+        this.containerTarget.addEventListener("animationend", this.restoreFunction, false);
+      }
+
       this.element.style.setProperty("--original-width", `${this.containerTarget.offsetWidth}px`);
       this.element.classList.remove("v--restore");
       this.element.classList.remove(`v--${this.screenSize}`);
       void this.element.offsetWidth;
       this.element.classList.add(`v--${this.screenSize}`);
-
-      if (this.screenSize === "mobile") {
-        this.containerTarget.addEventListener("animationend", this.restoreFunction, false);
-      }
     } else {
       this.restore();
     }

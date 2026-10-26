@@ -1,7 +1,6 @@
 ---
 Title: Fizz
 Layout: sections/simple
-heading_tag: h3
 inverted: true
 type: wide-text
 class: u-maxw-48 u-mx-auto

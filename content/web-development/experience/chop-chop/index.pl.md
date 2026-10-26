@@ -7,4 +7,4 @@ logos:
 order: 2
 ---
 
-Kodowanie stron internetowych, pluginów WordPress i sklepów WooCommerce
+Kodowanie stron internetowych, szablonów i pluginów WordPress oraz sklepów WooCommerce
