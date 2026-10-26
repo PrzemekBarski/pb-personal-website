@@ -6,7 +6,7 @@ $basicLightbox__timing: ease; // Transition timing
 @import './../../node_modules/basiclightbox/src/styles/main';
 
 .basicLightbox {
-  height: 100lvh;
+  height: 100dvh;
 
   &__placeholder {
     height: 100%;
