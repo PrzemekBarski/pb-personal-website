@@ -13,7 +13,7 @@ color: yellow
 decor:
   variant: 3
   color: gray-2
-order: 1
+order: 3
 ---
 
 MicroMic is a microphone preamp designed to allow vocalists to use guitar stompboxes. There are infinite possibilities for guitarists to shape their sound, but only several products are available for singers. MicroMic is here to change that.

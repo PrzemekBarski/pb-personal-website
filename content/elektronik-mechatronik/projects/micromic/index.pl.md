@@ -13,7 +13,7 @@ color: yellow
 decor:
   variant: 3
   color: gray-2
-order: 1
+order: 3
 ---
 
 MicroMic to przedwzmacniacz mikrofonowy zaprojektowny by umożliwić wokalistom korzystanie z gitarowych efektów podłogowych. Choć możliwości kreowania brzmienia są dla gitarzystów praktycznie nieograniczone, niestety wybór produktów kompatybilnych z mikrofonem jest bardzo ograniczony. MicroMic powstał by to zmienić.
