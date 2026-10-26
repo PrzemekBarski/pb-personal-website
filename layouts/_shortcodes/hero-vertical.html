@@ -1,0 +1,38 @@
+{{ $pretitle := .Get "pretitle" }}
+{{ $title := .Get "title" | default .Page.Title }}
+{{ $class := .Get "class" | default "" }}
+{{ $content_color := .Get "content_color" }}
+{{ $mobile_color := .Get "mobile_color" }}
+
+{{ $img := .Page.Resources.GetMatch .Page.Params.featured_image.src }}
+<section class="o-container-query u-relative lg:u-flex {{ $class }}">
+  {{ if $img }}
+    <div class="u-basis-4 xl:u-basis-5 u-order-1 lg:u-triangle-left-blue-900 {{ $class }}--image-wrapper">
+      {{ partial "image" (dict "Page" .Page "src" $img "width" 960 "height" 1200 "crop" true "sizes" "default:33vw" "alt" .Page.Params.featured_image.alt "class" (printf "u-w-full u-hidden lg:u-block %s--image" $class)) }}
+      {{ partial "image" (dict "Page" .Page "src" $img "width" 1120 "height" 840 "crop" true "anchor" "Center" "sizes" "default:100vw" "alt" .Page.Params.featured_image.alt "class" (printf "u-w-full u-block lg:u-hidden %s--image" $class)) }}
+    </div>
+  {{ end }}
+
+  <div class="u-pb-4 lg:u-py-2 u-mtn-4 xs:u-mtn-6 lg:u-mt-0
+              u-basis-8 xl:u-basis-7
+              u-bg-{{ $mobile_color }} lg:u-bg-{{ $content_color }}-900">
+    <div class="u-flex u-items-center u-content-end u-h-full">
+
+      <div class="{{ $class }}--content-wrapper o-container-xl
+                  u-ml-0 u-mr-0 lg:u-mr-4 xl:u-mr-4 lg:u-py-3
+                  u-relative u-w-full xl:u-w-48
+                  u-order-1 u-text-white">
+        <div class="u-px-2 u-py-2 {{ with $content_color }}u-bg-{{ $content_color }}-800{{ end }} {{ $class }}--content">
+          {{- with $pretitle }}
+            <p class="u-text-lg u-mt-0 u-mb-0 u-text-display">{{ . }}</p>
+          {{- end }}
+          {{- with $title }}
+            <h1 class="u-text-display u-text-xl lg:u-text-2xl u-mt-0 u-mb-2 u-text-yellow-200">{{ . }}</h1>
+          {{- end }}
+          <div class="u-text-lg">{{ .Inner | .Page.RenderString }}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  $prefix: if($breakpoint-value != 0, "#{$breakpoint-name}\\:", "");
+
+  @include container-query($breakpoint-name) {
+    @each $color-name, $color in $colors {
+
+      .#{$prefix}u-triangle-left-#{$color-name} {
+        position: relative;
+        
+        &:before {
+          content: " ";
+          display: block;
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(95deg, $color, $color 10%, rgba(0,0,0,0) 10%);
+        }
+      }
+    }
+  }
+}

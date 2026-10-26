@@ -1,0 +1,57 @@
+{{- define "main" -}}
+
+{{- $footer_grid := false }}
+{{- if isset .Params "footer" }}
+  {{- if isset .Params.footer "grid" }}
+    {{- $footer_grid = .Params.footer.grid }}
+  {{- end }}
+{{- end -}}
+
+<div class="u-fixed u-w-full u-py-1.5 u-mbn-5 u-relative u-z-index-11">
+  <div class="o-container-xl">
+    {{- partial "translations" . -}}
+  </div>
+</div>
+
+{{ .Content }}
+
+{{- range sort .Pages ".Params.order" }}
+  {{ if len .Layout }}
+    {{- partial .Layout . }}
+  {{ else }}
+    {{- partial "sections/custom" . }}
+  {{ end }}
+{{- end -}}
+
+{{- if len .Parent.Pages }}
+  <section class="u-py-4 sm:u-py-8 u-bg-gray-25">
+    <div class="o-container">
+      <h2 class="u-text-2xl u-text-display u-mt-0 u-text-center u-mb-4 sm:u-mb-6">{{ i18n "other_ventures" }}</h2>
+      <div class="u-grid">
+      {{- range sort .Parent.Pages ".Params.order" }}
+        {{ if ne $ . }}
+          <article class="c-hover-lift c-link-overlay
+                          u-mb-2 md:u-mb-0 
+                          u-grid-colspan-12 sm:u-grid-colspan-6
+                          u-bg-white u-bg-{{ .Params.color }}-50 u-text-center">
+            <div class="">
+              {{ $image_src := cond .Params.featured_image.thumbnail .Params.featured_image.thumbnail .Params.featured_image.src }}
+              {{ partial "image" (dict "Page" . "src" $image_src "width" 600 "height" 400 "crop" true "alt" .Params.featured_image.alt ) }}
+            </div>
+            <h3 class="u-text-lg u-basis-6 u-order-1 u-p-2 u-m-0">
+              <a href="{{ .RelPermalink }}" class="c-link-overlay__a u-link-reset">{{ .Title }}</a>
+            </h3>
+          </article>
+        {{- end }}
+      {{- end }}
+      </div>
+    </div>
+  </section>
+
+{{- end }}
+
+{{- if not $footer_grid }}
+  {{- partial "contact-card" }}
+{{- end }}
+
+{{ end }}

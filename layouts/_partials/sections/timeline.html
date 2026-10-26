@@ -1,0 +1,27 @@
+<section class="u-py-4 sm:u-py-6 u-bg-blue-50">
+	<div class="o-container">
+    <div class="u-flex u-content-between u-items-start u-mb-4">
+		  <h2 class="u-text-display u-text-3xl u-mb-0 u-mt-0">{{ .Title }}</h2>
+      {{- if .Params.image }}
+        {{- partial "image" (dict "Page" . "src" .Params.image.src "width" 300 "height" 40 "alt" .Params.image.alt "class" "u-hidden md:u-block") }}
+      {{- end }}
+    </div>
+
+    <div>
+      {{- range .RegularPages }}
+        {{ $page := .}}
+        <div class="u-flex u-flex-wrap u-items-center u-mb-3 xs:u-mb-0">
+          <div class="u-basis-12 xs:u-basis-4 md:u-basis-3 lg:u-basis-2 xs:u-pr-2 sm:u-pr-4">
+            {{- range .Params.logos }}
+              {{ partial "image" (dict "Page" $page "src" .src "width" 100 "alt" .alt "class" "u-block u-my-1 u-w-full u-maxw-6 xs:u-maxw-none") }}
+            {{- end }}
+          </div>
+          <div class="u-basis-12 xs:u-basis-8 md:u-basis-9 lg:u-basis-10 xs:u-pl-2 sm:u-pl-4 xs:u-bl-3 xs:u-py-2">
+            <p class="u-text-red-3"><strong>{{ .Params.duration }}</strong></p>
+            {{ .Content }}
+          </div>
+        </div>
+      {{- end -}}
+    </div>
+	</div>
+</section>

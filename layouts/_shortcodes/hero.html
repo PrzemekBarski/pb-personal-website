@@ -1,0 +1,31 @@
+{{ $pretitle := .Get "pretitle" }}
+{{ $title := .Get "title" }}
+{{ $color := .Get "color" }}
+
+{{ $bg_img := .Page.Resources.GetMatch .Page.Params.featured_image.src }}
+<section class="t-hero u-relative u-bg-{{ .Params.color }}">
+
+  {{ if $bg_img }}
+    {{ partial "image" (dict "Page" .Page "src" $bg_img "width" 1920 "height" 1024 "crop" true "sizes" "default:100vw" "alt" .Page.Params.featured_image.alt "class" "u-w-full u-block") }}
+  {{ end }}
+
+  <div class="md:u-absolute u-position-full md:u-py-4">
+    <div class="o-container-xl u-h-full u-bg-black sm:u-bg-transparent">
+      <div class="u-flex u-items-end u-content-center md:u-content-end u-h-full">
+
+        <div class="u-py-2 sm:u-p-2 md:u-p-0 m:u-p-0 sm:u-mtn-8
+                    u-order-1 sm:u-basis-10 md:u-basis-6 lg:u-basis-5 xl:u-basis-4
+                    u-text-white u-bg-black md:u-bg-transparent u-relative">
+          {{- with $pretitle }}
+            <p class="u-text-lg u-mt-0 u-mb-0 u-text-display">{{ . }}</p>
+          {{- end }}
+          {{- with $title }}
+            <h1 class="u-text-display u-text-2xl lg:u-text-3xl u-mt-0 u-mb-2 u-text-yellow-200">{{ . }}</h1>
+          {{- end }}
+          <div class="u-text-lg">{{ .Inner | .Page.RenderString }}</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -2,9 +2,13 @@
 
 $enable-container-query: true;
 
+@import "styles/functions";
 @import "styles/settings";
 @import "styles/mixins";
-@import "styles/objects/index";
-@import "styles/components/index";
-@import "styles/utility/index";
-@import "styles/general";
+
+.o-container-query {
+  @import "styles/objects/index";
+  @import "styles/components/index";
+  @import "styles/utility/index";
+  @import "styles/general";
+}

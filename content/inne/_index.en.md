@@ -7,11 +7,11 @@ lightbox: true
 card_size: full
 card_color: black
 card_featured: true
-_build:
+build:
   list: never
   render: never
 cascade:
-  _build:
+  build:
     list: local
     render: never
 order: 3

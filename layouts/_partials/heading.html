@@ -1,0 +1,21 @@
+{{- $page := .Page -}}
+{{- $font_sizes := slice "2xl" "xl" "lg" "md" "sm" "xs" -}}
+{{- $heading_tag := $page.Params.heading_tag -}}
+{{- $class := .Class -}}
+{{- if not $heading_tag -}}
+  {{- $heading_level := 2 -}}
+  {{- range $page.Ancestors -}}
+    {{- if .Store.Get "sections_custom_invoked" -}}
+      {{- $heading_level = add $heading_level 1 -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt $heading_level 6 -}}
+    {{- $heading_level = 6 -}}
+  {{- end -}}
+  {{- $heading_size := index $font_sizes (sub $heading_level 2)  -}}
+  {{- $class = printf "u-text-%s %s" $heading_size .Class -}}
+  {{- $heading_tag = printf "h%d" $heading_level -}}
+{{- else if not (in (slice "h1" "h2" "h3" "h4" "h5" "h6") $heading_tag) -}}
+  {{- $heading_tag = "h2" -}}
+{{- end -}}
+{{ printf "<%s class=\"%s\">" $heading_tag (htmlEscape $class) | safeHTML }}{{ $page.Title }}{{ printf "</%s>" $heading_tag | safeHTML }}

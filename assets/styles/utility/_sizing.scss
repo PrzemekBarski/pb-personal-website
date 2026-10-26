@@ -2,18 +2,31 @@ $sizes: (
   "4": 4,
   "5": 5,
   "6": 6,
+  "7": 7,
   "8": 8,
+  "9": 9,
   "10": 10,
   "12": 12,
   "16": 16,
+  "18": 18,
   "20": 20,
+  "22": 22,
   "24": 24,
+  "26": 26,
   "28": 28,
+  "30": 30,
   "32": 32,
+  "34": 34,
   "36": 36,
+  "38": 38,
   "40": 40,
+  "42": 42,
+  "44": 44,
+  "46": 46,
   "48": 48,
+  "52": 52,
   "56": 56,
+  "60": 60,
   "64": 64
 );
 
@@ -29,12 +42,24 @@ $sizes: (
       width: 100%;
     }
 
+    .#{$prefix}u-vw-full {
+      width: 100vw;
+    }
+
     .#{$prefix}u-maxw-full {
       max-width: 100%;
     }
 
     .#{$prefix}u-maxw-none {
       max-width: none;
+    }
+
+    .#{$prefix}u-h-full {
+      height: 100%;
+    }
+
+    .#{$prefix}u-maxh-full {
+      height: 100%;
     }
 
     @each $size-name, $size in $sizes {
@@ -47,6 +72,17 @@ $sizes: (
       }
     }
 
+    @for $i from 1 through 12 {
+      .#{$prefix}u-wvw-#{$i} {
+        width: #{$i * 100 / 12}vw;
+      }
+
+      .#{$prefix}u-hvw-#{$i} {
+        height: #{$i * 100 / 12}vw;
+      }
+    }
 
   }
 }
+
+

@@ -111,8 +111,8 @@ const setRenderer = (width, height) => {
 /*
  * Render function required by Three.js to display things.
  */
-const render = (element, renderer, scene, camera, isTrackball) => {
-  renderer.setClearColor(getComputedStyle(element).backgroundColor)
+const render = (element, renderer, scene, camera, isTrackball, bgcolor) => {
+  renderer.setClearColor(bgcolor)
   element.appendChild(renderer.domElement)
   const animate = () => {
     setTimeout( function() {
@@ -144,7 +144,7 @@ const prepareScene = (domElement, opts) => {
   if (opts.grid) {
     showGrid(scene)
   }
-  render(element, renderer, scene, camera, opts.trackball)
+  render(element, renderer, scene, camera, opts.trackball, opts.bgcolor)
   window.addEventListener(
     'resize',
     onWindowResize(element, camera, renderer),

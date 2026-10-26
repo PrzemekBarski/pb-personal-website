@@ -1,6 +1,7 @@
-baseURL = 'https://przemyslawbarski.netlify.app/'
-defaultContentLanguage = 'pl'
+baseURL = 'https://przemyslawbarski.netlify.app'
+defaultContentLanguage = 'en'
 disableKinds = ['taxonomy', 'term']
+enableInlineShortcodes = true
 
 [languages]
   [languages.pl]

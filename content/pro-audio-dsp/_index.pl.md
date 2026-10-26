@@ -1,21 +1,22 @@
 ---
-Title: Pro Audio DSP
+Title: Audio Software Developer
 description: Programowanie procesorów audio dla muzyków i producentów
-image_alt: Zdjęcie przedstawiające laptop z widocznym kodem programu C++, w tle studio muzyczne
-card_size: large
-card_color: black
-card_icon: stray-cat.svg
-card_icon_width: 120
-card_icon_alt: Stray Cat
-card_featured: true
-_build:
+featured_image:
+  src: pro-audio-dsp.jpg
+  alt: Przemysław Barski w swoim biurze
+color: red
+build:
   list: always
   render: always
 cascade:
-  _build:
+  build:
     list: local
     render: never
 order: 1
 ---
 
-Programowanie procesorów audio dla muzyków, producentów i realizatorów nagrań
+{{< hero pretitle="Przemysław Barski" title="Audio Software Developer" color="blue-25" >}}
+
+  Projektowanie i programowanie aplikacji dla muzyków i producentów.
+
+{{</ hero >}}

@@ -1,0 +1,6 @@
+{
+    "editor.autoIndentOnPaste": false,
+    "css.styleSheets": [
+        "assets/styles/*.scss"
+    ]
+}

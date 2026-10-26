@@ -4,10 +4,6 @@
 
   transition: width 2s ease-in-out;
 
-  &.v--mobile {
-    height: 50vh;
-  }
-
   &.v--mobile &__container {
     transform-origin: 0 0;
     animation-name: responsive-demo-mobile;
