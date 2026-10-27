@@ -7,6 +7,9 @@ featured_image:
   src: elektronika.jpg
   thumbnail: elektronika-thumbnail.jpg
   alt: Przemysław Barski leaning on his desk in his prototyping lab
+flag_positions:
+  default: left
+  md: right
 scripts:
   - 3d-viewer.js
 build:

@@ -1,5 +1,17 @@
-{{ if .IsTranslated }}
-<div class="u-text-right">
+{{- if .IsTranslated }}
+
+{{- $flag_positions := dict "default" "right" }}
+{{- with .Params.flag_positions }}
+  {{- $flag_positions = . }}
+{{- end }}
+
+{{- $flag_positions_classes := "" }}
+{{- range $key, $val := $flag_positions }}
+  {{- $prefix := cond (eq $key "default") "" (printf "%s:" $key) }}
+  {{- $flag_positions_classes = printf "%s %su-text-%s" $flag_positions_classes $prefix $val }}
+{{- end }}
+
+<div class="{{ $flag_positions_classes }}">
   {{ range .Translations }}
     {{ $flag := resources.Get (printf "icons/%s.svg" .Lang) }}
     <a href="{{ .RelPermalink }}" hreflang="{{ .Language }}" class="u-inline-block u-shadow-xs v--no-transform">
