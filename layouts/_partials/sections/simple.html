@@ -50,7 +50,7 @@ Parameters:
 {{- if eq $type "wide-text" -}}
   {{- $content_column_class = "md:u-grid-colspan-7" -}}
 {{- else if ne $type "stacked" -}}
-  {{- $content_column_class = "md:u-grid-colspan-5" -}}
+  {{- $content_column_class = "md:u-grid-colspan-6 lg:u-grid-colspan-5" -}}
 {{- end -}}
 {{- if ne $type "stacked" -}}
   {{- if $inverted -}}
@@ -66,7 +66,7 @@ Parameters:
 {{- if eq $type "wide-text" -}}
   {{- $media_column_class = "md:u-grid-colspan-5" -}}
 {{- else if ne $type "stacked" -}}
-  {{- $media_column_class = "md:u-grid-colspan-7 md:u-mb-0" -}}
+  {{- $media_column_class = "md:u-grid-colspan-6 lg:u-grid-colspan-7 md:u-mb-0" -}}
 {{- end -}}
 {{- if .Params.badge -}}
   {{- $media_column_class = printf "%s u-mt-4 md:u-mt-0" $media_column_class -}}
@@ -105,7 +105,7 @@ Parameters:
             {{ partial "heading" (dict "Page" . "Class" "u-text-display u-mt-0 u-hidden md:u-block") }}
           {{ end }}
           {{- with .Params.model_3d }}
-            <button class="c-button u-absolute v--white sm:u-hidden v--no-transform u-mb-1" data-action="3d-model-viewer#load" data-3d-model-viewer-target="loadButton">
+            <button class="c-button v--white sm:u-hidden v--no-transform u-mb-1" data-action="3d-model-viewer#load" data-3d-model-viewer-target="loadButton">
               <span class="c-button__content">{{ i18n "3d_model" }} ({{ .size }})</span>
             </button>
           {{- end }}
