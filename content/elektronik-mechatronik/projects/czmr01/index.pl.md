@@ -19,8 +19,6 @@ order: 0
 
 CZMR01 służy do sprawdzania poprawności działania systemu Samoczynnego Hamowania Pociągu (SHP). System ten opiera się na sprawdzaniu czujności maszynisty poprzez wyzwalanie sygnałów świetlnych i dźwiękowych. Maszynista powinien na nie zareagować naciśnięciem odpowiedniego przycisku. Proces jest uruchamiany przez specjalny rezonator przytorowy.
 
-W celu wykonania testu należy podłączyć urządzenie do każdego z modułów systemu i uruchomić proces, przejeżdżając nad rezonatorem. CZMR01 przechwyci właściwe impulsy i wyświetli czasy pomiędzy nimi. Panel został zaprojektowany do montażu w skrzyni transportowej i uwzględnia zamykaną komorę na okablowanie.
-
 Kolejne zdarzenia tej sekwencji powinny się odbywać w ściśle określonych interwałach. W celu zmierzenia tych interwałów należy podłączyć urządzenie do każdego z modułów systemu i uruchomić proces przejeżdżając nad rezonatorem. CZMR01 przechwyci właściwe impulsy i wyświetli czasy pomiędzy nimi. Panel został zaprojektowany do montażu w skrzyni transportowej i uwzględnia zamykaną komorę na okablowanie.
 
 Zakres: projektowanie układu elektronicznego, projektowanie PCB, rozwój oprogramowania, projekt mechaniczny panelu, budowa prototypu
