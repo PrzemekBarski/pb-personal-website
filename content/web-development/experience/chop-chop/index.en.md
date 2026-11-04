@@ -7,4 +7,4 @@ logos:
 order: 2
 ---
 
-I built custom WordPress themes and plugins, and WooCommerce extensions, including a drag-and-drop product configurator. I also built a custom WordPress backend that allowed users to create posts themselves.
+I built custom WordPress themes and plugins, and extensions for WooCommerce stores, including product configurators and a custom backend.
