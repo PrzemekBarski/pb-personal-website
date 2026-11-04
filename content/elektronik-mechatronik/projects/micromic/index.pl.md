@@ -5,7 +5,7 @@ Layout: sections/simple
 featured_video:
   src: micromic.mp4
   poster: micromic.jpg
-  alt: "Video: Przemysław Barski playing various instruments"
+  alt: Przemysław Barski grający na różnych instrumentach
   padding: false
   width: 649
   height: 365
@@ -16,6 +16,6 @@ decor:
 order: 3
 ---
 
-MicroMic to przedwzmacniacz mikrofonowy zaprojektowny by umożliwić wokalistom korzystanie z gitarowych efektów podłogowych. Choć możliwości kreowania brzmienia są dla gitarzystów praktycznie nieograniczone, niestety wybór produktów kompatybilnych z mikrofonem jest bardzo ograniczony. MicroMic powstał by to zmienić.
+MicroMic to przedwzmacniacz mikrofonowy, który zaprojektowałem z myślą o wokalistach chcących korzystać z gitarowych efektów podłogowych. Podnosi poziom sygnału mikrofonowego do poziomu zbliżonego do sygnału z pasywnej gitary elektrycznej, dzięki czemu można włączyć efekty gitarowe w tor wokalny.
 
-Ten studyjnej jakości preamp posiada pętlę efektów, która dostosowuje poziom i impedancję do tych obecnych na wyjściu gitary elektrycznej. Posiada dodatkowy, przesterowany kanał dający możliwość dodatkowego nasycenia dźwięku.
+Układ THAT1510 wzmacnia sygnał, który może następnie przejść przez przełączany efekt distortion i pętlę efektów. Na wyjściu sygnał jest ponownie symetryzowany. Dodałem też wskaźnik poziomu i funkcję wyciszenia mikrofonu.

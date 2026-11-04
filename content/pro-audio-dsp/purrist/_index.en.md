@@ -18,7 +18,7 @@ featured_video:
 order: 1
 ---
 
-Purrist is a state-of-the-art noise suppressor designed primarily for use with electric guitars. Its ability to preserve your guitar's sustain distinguishes it from other plugins and hardware gates. The three sections of the plugin target AC hum, white noise, and other interference. Purrist is currently available for iPad and Apple Silicon Macs.
+Purrist is a guitar noise-reduction app I designed and programmed in C++17 using the JUCE framework. It has three modules for reducing mains hum, high-frequency noise, and other interference. Its algorithms help preserve the guitar's natural sustain. The app was released on the App Store in April 2025 and is available for iPad and Apple Silicon Macs.
 
 <div class="u-mb-3 u-mt-1">
   <a href="https://straycataudio.com/purrist/" target="_blank" class="c-button v--no-transform">

@@ -1,6 +1,6 @@
 ---
 Title: Electronics / Mechatronics Engineer
-description: Analog and digital circuit design. Audio processors for stage and studio.
+description: Electronic circuit and PCB design, microcontroller programming, and prototype development.
 color: yellow
 url: electronics
 featured_image:
@@ -24,7 +24,7 @@ order: 0
 
 {{< hero-vertical pretitle="Przemysław Barski" content_color="blue" mobile_color="orange-25" title="Electronics / Mechatronics Engineer" class="t-elektronika-hero" >}}
 
-  Circuit and PCB design, microcontrollers programming, R&D and prototyping.
+  Electronic circuit and PCB design, microcontroller programming, and prototype development.
 
 {{</ hero-vertical >}}
 

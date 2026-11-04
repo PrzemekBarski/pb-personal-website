@@ -16,6 +16,6 @@ decor:
 order: 3
 ---
 
-Ten w całości analogowy efekt audio ma nieograniczone możliwości brzmieniowe i sprawdzi się równie dobrze z gitarą, basem, syntezatorem czy dowolnym innym elektrycznym / elektronicznym instrumentem. Sercem urządzenia jest konfigurowalny filtr który może być kontrolowany dynamiką gry, LFO lub pedałem ekspresji. Pedał może też służyć do sterowania szybkością LFO.
+Riddle Machine to analogowy efekt, który zaprojektowałem z myślą o gitarze i basie; można go używać także z syntezatorem. Jego konfigurowalny filtr reaguje na dynamikę gry, sygnał LFO albo pedał ekspresji. Pedał może również sterować szybkością LFO.
 
-Riddle Machine zawiera też charakterystyczny fuzz, który w połączeniu z filtrem nada gitarze brzmienie przypominające analogowy syntezator. Można używać go też tak jak klasycznego efektu wah, a jego zakres i agresywny rezonans jest zupełnie niepowtarzalny.
+Wbudowany fuzz w połączeniu z filtrem pozwala uzyskać brzmienie przypominające analogowy syntezator. Efekt może też działać jak wah; agresywny rezonans nadaje mu wyrazisty charakter.

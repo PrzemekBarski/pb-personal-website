@@ -1,8 +1,8 @@
 ---
-title: Device for Testing the Accuracy of Railway Vehicle Tachograph Readings
+title: Railway Tachograph Testing Device
 featured_image:
   src: tester-tachografu.png
-  alt: "Photo: Device for Testing the Accuracy of Railway Vehicle Tachograph Readings"
+  alt: Railway tachograph testing device
   loading: lazy
   width: 592
   height: 404
@@ -14,6 +14,8 @@ decor:
 order: 1
 ---
 
-A device designed to facilitate periodic inspection of railway tachographs without the need for a test run. After mounting the tachograph transmitter, previously removed from the vehicle axle box, the tachograph shaft is driven by the testing device’s motor. At the same time, the correct speed is displayed and can be compared with the reading on the dashboard in the vehicle cab. The device can be powered from the electrical mains or the vehicle battery.
+The device enables periodic checks of railway tachograph readings without a test run. The tachograph transmitter, removed from the vehicle's axle box, is driven by a BLDC motor. After entering the wheel diameter and, if needed, the transmitter gear ratio, the display shows a speed that the operator can compare with the reading in the vehicle cab. The device can be powered from the mains or the vehicle battery.
 
-Scope: electronic circuit design, PCB design, software development
+I designed and programmed the device interface. It communicates with the motor controller over RS-485 using the MODBUS protocol.
+
+Scope: electronic circuit and PCB design, and interface software.

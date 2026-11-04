@@ -17,8 +17,8 @@ decor:
 order: 0
 ---
 
-CZMR01 is used to verify the correct operation of the Automatic Train Braking (SHP) system. This system monitors the driver’s alertness by triggering visual and audible signals. The driver must respond by pressing the appropriate button. The process is initiated by a dedicated trackside resonator.
+CZMR01 tests the operation of the Automatic Train Braking (SHP) system. The system checks the driver's alertness by triggering visual and audible signals, to which the driver responds by pressing a button. The sequence is initiated by a trackside resonator.
 
-To perform the test, the device must be connected to each system module and the process started by passing over the resonator. CZMR01 captures the relevant pulses and displays the time intervals between them. The panel is designed for installation in a transport case and includes a lockable compartment for the wiring.
+The events in the sequence must occur at defined intervals. To measure them, the device is connected to the system modules and the sequence is started by passing over the resonator. CZMR01 records the pulses and displays the intervals between them. I designed the panel for installation in a transport case; it includes a lockable compartment for cables.
 
-Scope: electronic circuit design, PCB design, software development, and mechanical panel design, prototyping.
+Scope: electronic circuit and PCB design, software, panel design, and prototype construction.

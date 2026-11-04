@@ -1,8 +1,8 @@
 ---
-title: Urządzenie do testowania prawidłowości wskazań tachografu pojazdu kolejowego
+title: Urządzenie do testowania wskazań tachografów kolejowych
 featured_image:
   src: tester-tachografu.png
-  alt: "Zdjęcie: urządzenie do testowania prawidłowości wskazań tachografu pojazdu kolejowego"
+  alt: Urządzenie do testowania wskazań tachografu kolejowego
   loading: lazy
   width: 592
   height: 404
@@ -14,6 +14,8 @@ decor:
 order: 1
 ---
 
-Urządzenie ułatwiające okresową kontrolę tachografów kolejowych bez potrzeby jazdy testowej. Po zamontowaniu nadajnika tachografu, zdjętego wcześniej z maźnicy pojazdu, wałek tachografu jest napędzany przez silnik urządzenia testującego. Jednocześnie na wyświetlaczu wskazywana jest prawidłowa prędkość, którą należy porównać ze wskazaniem na desce rozdzielczej w kabinie pojazdu. Urządzenie może być zasilane z sieci elektrycznej lub z akumulatora pojazdu.
+Urządzenie umożliwia okresową kontrolę wskazań tachografu kolejowego bez jazdy testowej. Nadajnik tachografu, wymontowany wcześniej z maźnicy, jest napędzany silnikiem BLDC. Po wprowadzeniu średnicy koła i ewentualnego przełożenia nadajnika wyświetlacz pokazuje prędkość, którą operator porównuje ze wskazaniem w kabinie pojazdu. Urządzenie można zasilać z sieci elektrycznej lub z akumulatora pojazdu.
 
-Zakres: projektowanie układu elektronicznego, projektowanie PCB, rozwój oprogramowania
+Zaprojektowałem i zaprogramowałem interfejs urządzenia. Komunikację ze sterownikiem silnika zrealizowałem przez RS-485 i protokół MODBUS.
+
+Zakres prac: projekt układu elektronicznego i PCB oraz oprogramowanie interfejsu.

@@ -7,11 +7,11 @@ class: u-maxw-48 u-mx-auto
 color: red-25
 featured_image:
   src: buzz.png
-  alt: "Image showing the \"Buzz\" section of the Purrist app, containing the Ratio, Threshold, AC Frequency parameters, and a signal reduction meter"
+  alt: "Purrist's \"Buzz\" section, with Ratio, Threshold, and AC Frequency controls and a gain-reduction meter"
   padding: false
   width: 311
   height: 506
 order: 1
 ---
 
-This section is responsible for eliminating mains hum, which plagues guitars with single-coil pickups. My custom algorithm uses a phase shift and a series of precisely tuned IIR filters. The signal is processed only below a set loudness threshold.
+This module reduces mains hum, which is especially noticeable with single-coil pickups. I developed an algorithm using phase shifting and a series of tuned IIR filters. Processing is applied only when the signal level falls below a set threshold.

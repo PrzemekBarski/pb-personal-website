@@ -1,12 +1,12 @@
 ---
 Title: LiveChat Software / Text, Inc.
-duration: 5 lat
+duration: 2018-2023
 logos:
   - src: text.svg
-    alt: Text logo
+    alt: Logo Text
   - src: livechat.svg
-    alt: LiveChat logo
+    alt: Logo LiveChat
 order: 1
 ---
 
-Utrzymanie i rozwój stron marketingowych oraz informacyjnych spółki w środowisku Jamstack i Wordpress (Hugo, PHP, HTML5, CSS3, Javascript, Vue.js, Netlify CMS, Sanity CMS, Headless Wordpress)
+Rozwijałem i utrzymywałem strony marketingowe oraz informacyjne LiveChat w środowisku Jamstack. Zakodowałem dziesiątki stron docelowych i współtworzyłem blog Success oparty na Hugo i headless WordPress. Pracowałem z projektantami stron i copywriterami, korzystając m.in. z Hugo, PHP, HTML5, CSS3, JavaScript, Vue.js, Netlify CMS i Sanity.
