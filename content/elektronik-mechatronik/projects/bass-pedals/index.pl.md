@@ -16,6 +16,6 @@ decor:
 order: 4
 ---
 
-Bass Pedals to kompaktowy, programowalny kontroler nożny MIDI, który zbudowałem na własny użytek sceniczny. Zastępuje pełną klawiaturę pedałową i pozwala szybko uruchamiać wybrane dźwięki bez zajmowania dużej przestrzeni.
+Bass Pedals to kompaktowy, programowalny kontroler nożny MIDI. Zastępuje pełną klawiaturę pedałową i pozwala szybko uruchamiać wybrane dźwięki bez zajmowania dużej przestrzeni.
 
 Do każdego z czterech przycisków można przypisać maksymalnie cztery nuty, dzięki czemu kontroler może służyć również do grania akordów. Przyciski wysyłają też komunikaty Control Change i Program Change, umożliwiając zdalne sterowanie instrumentem. Urządzenie przechowuje 99 konfiguracji i nadal wykorzystuję je podczas gry w zespole.
