@@ -1,10 +1,10 @@
 ---
 Title: Chop-Chop sp. z o.o.
-duration: 5 years
+duration: 2014-2018
 logos:
   - src: chop-chop.svg
     alt: Chop-Chop logo
 order: 2
 ---
 
-Coding websites, WordPress themes and plugins, and WooCommerce stores
+I built custom WordPress themes and plugins, and extensions for WooCommerce stores, including product configurators and custom backends.

@@ -18,7 +18,7 @@ featured_video:
 order: 8
 ---
 
-Purrist to zaawansowana, gitarowa bramka szumów zaprojektowana do walki ze wszystkimi zakłóceniami typowymi dla gitar elektrycznych. To co odróżnia ją od innych narzędzi tego typu jest to, że nie skraca naturalnego wybrzmienia instrumentu. Purrist jest dostępny na Apple iPad i Mac z procesorami Apple Silicon.
+Purrist to aplikacja do redukcji szumów gitarowych, którą zaprojektowałem i zaprogramowałem w C++17 z użyciem frameworka JUCE. Zawiera trzy moduły do redukcji przydźwięku sieciowego, wysokoczęstotliwościowego szumu i pozostałych zakłóceń. Jej algorytmy pomagają zachować naturalne wybrzmienie gitary. Aplikacja ukazała się w App Store w kwietniu 2025 roku i działa na iPadzie oraz komputerach Mac z układami Apple Silicon.
 
 <div class="u-mb-3 u-mt-2">
   <a href="https://straycataudio.com/purrist/" target="_blank" class="c-button v--no-transform">

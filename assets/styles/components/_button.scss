@@ -17,6 +17,12 @@
     text-shadow: 2px 2px #{map-get($colors, "black")};
   }
 
+  &.v--hover-white:hover &__content {
+    background-color: #{map-get($colors, "white")};
+    text-shadow: 2px 2px #{map-get($colors, "white")};
+    color: #{map-get($colors, "black")};
+  }
+
   &:hover &__content {
     background-color: #{map-get($colors, "black")};
   }

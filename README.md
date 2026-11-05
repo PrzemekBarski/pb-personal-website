@@ -3,12 +3,12 @@
 ## Prerequisites
 
 - Node v16.0.0
-- Hugo v0.108.0
+- Hugo v0.152.2
 
 ## Development:
 
 ```
-$ hugo server
+$ hugo serve
 ```
 
 Website will be served on http://localhost:1313/.

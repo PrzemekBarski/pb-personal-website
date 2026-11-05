@@ -16,7 +16,6 @@ decor:
 order: 4
 ---
 
-Bass Pedals is a programmable MIDI foot controller. It was inspired by bassists like Mike Rutherford or John Paul Jones, who often doubled as rhythm guitarists on stage and played the bassline with an organ foot keyboard.
+Bass Pedals is a compact, programmable MIDI foot controller. It is an alternative to a full pedalboard keyboard, letting a musician trigger selected notes without taking up as much space.
 
-Bass Pedals is a compact version of such a keyboard designed for musicians who do not need immediate access to the whole octave.
-Each of the four programmable buttons can be assigned to even four notes of your choice, so you can play chords as well. You can also control a connected instrument remotely via Control Change and Program Change messages. The memory of the device can store 99 programmed configurations.
+Each of the four buttons can be assigned up to four notes, so the controller can also be used to play chords. The buttons can also send Control Change and Program Change messages to control a connected instrument. The device stores 99 configurations, and I still use it when playing with my band.

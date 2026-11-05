@@ -5,7 +5,7 @@ Layout: sections/simple
 featured_video:
   src: micromic.mp4
   poster: micromic.jpg
-  alt: "Video: Przemysław Barski playing various instruments"
+  alt: Przemysław Barski playing various instruments
   padding: false
   width: 649
   height: 365
@@ -16,6 +16,6 @@ decor:
 order: 3
 ---
 
-MicroMic is a microphone preamp designed to allow vocalists to use guitar stompboxes. There are infinite possibilities for guitarists to shape their sound, but only several products are available for singers. MicroMic is here to change that.
+MicroMic is a microphone preamp I designed for vocalists who want to use guitar stompboxes. It raises a microphone signal to a level close to that of a passive electric guitar, allowing guitar effects to be used in a vocal signal chain.
 
-This studio-quality preamp has an FX loop that matches the electric guitar output level and impedance. It has an additional, overdriven channel for extra mojo.
+The THAT1510 preamp boosts the signal, which can then pass through a bypassable distortion effect and effects loop. The output is balanced again before leaving the device. I also added a level indicator and a microphone mute function.

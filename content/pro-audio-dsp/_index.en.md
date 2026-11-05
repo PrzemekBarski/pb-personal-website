@@ -1,6 +1,6 @@
 ---
 Title: Pro Audio DSP
-description: Development of professional audio processors for stage and studio
+description: Design and development of audio software for musicians and producers.
 featured_image:
   src: pro-audio-dsp.jpg
   alt: Przemysław Barski in his office
@@ -17,6 +17,6 @@ order: 1
 
 {{< hero pretitle="Przemysław Barski" title="Audio Software Developer" color="blue-25" >}}
 
-  Development of professional audio processors for stage and studio.
+  Designing and developing applications for musicians and producers.
 
 {{</ hero >}}

@@ -1,6 +1,6 @@
 ---
 Title: Web Developer
-description: Dziewięć lat doświadczenia. HTML 5, JS ES12, CSS 3, PHP 7, Wordpress, Jamstack
+description: Dziesięć lat doświadczenia w tworzeniu stron i sklepów internetowych, motywów i wtyczek WordPress oraz serwisów Jamstack.
 featured_image:
   src: web-development.jpg
   alt: Przemysław Barski w swoim biurze
@@ -18,6 +18,10 @@ order: 2
 
 {{< hero pretitle="Przemysław Barski" title="Web Developer" color="blue-50" >}}
 
-  Kodowanie stron i sklepów internetowych. Tworzenie pluginów i szablonów Wordpress.
+  Tworzenie stron i sklepów internetowych oraz rozwój motywów i wtyczek WordPress.
+
+  <a href="https://github.com/PrzemekBarski/pb-personal-website" target="_blank" class="c-button v--hover-white v--lg v--no-transform u-text-md">
+    <span class="c-button__content">Zobacz repozytorium tej strony</span>
+  </a>
 
 {{</ hero >}}
