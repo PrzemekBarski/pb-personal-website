@@ -20,4 +20,8 @@ order: 2
 
   Website and online store development, including WordPress themes and plugins.
 
+  <a href="https://github.com/PrzemekBarski/pb-personal-website" target="_blank" class="c-button v--hover-white v--lg v--no-transform u-text-md">
+    <span class="c-button__content">Check out this website's repo</span>
+  </a>
+
 {{</ hero >}}

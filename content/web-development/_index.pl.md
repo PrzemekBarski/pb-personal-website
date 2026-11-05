@@ -20,4 +20,8 @@ order: 2
 
   Tworzenie stron i sklepów internetowych oraz rozwój motywów i wtyczek WordPress.
 
+  <a href="https://github.com/PrzemekBarski/pb-personal-website" target="_blank" class="c-button v--hover-white v--lg v--no-transform u-text-md">
+    <span class="c-button__content">Zobacz repozytorium tej strony</span>
+  </a>
+
 {{</ hero >}}
