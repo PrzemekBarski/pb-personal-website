@@ -7,4 +7,4 @@ logos:
 order: 2
 ---
 
-I built custom WordPress themes and plugins, and extensions for WooCommerce stores, including product configurators and a custom backend.
+I built custom WordPress themes and plugins, and extensions for WooCommerce stores, including product configurators and custom backends.
